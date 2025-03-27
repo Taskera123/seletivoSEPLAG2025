@@ -1,5 +1,0 @@
--Para a execução do projeto, tem que adentrar a pasta sandbox, onde contem o documento docker-compose.yml
--Dentro da pasta acesso o terminal ou prompt de comando(cmd.exe) e execute o comando "docker-compose up --build"
--Espere o termino do levantamento de containers e a aplicação estará funcionando:
-    - http://localhost:9001/login - acesso ao MinIO - admin123 para o login e strongpassword123 para senha
-    - http://localhost:8083/apiseletivo/swagger-ui/index.html# para acessar o swagger para testar os endpoints
