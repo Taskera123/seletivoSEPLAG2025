@@ -10,49 +10,49 @@ public class CidadeEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "cidade_seq")
     @SequenceGenerator( name = "cidade_seq", sequenceName = "cidade_cid_id_seq", allocationSize = 1)
     @Column(name = "cid_id")
-    private Long cidId;
+    private Long cidadeId;
 
     @Column(name = "cid_nome", length = 200, nullable = false)
-    private String cidNome;
+    private String cidadeNome;
 
     @Column(name = "cid_uf", length = 2, nullable = false)
-    private String cidUf;
+    private String cidadeUf;
 
-    public Long getCidId() {
-        return cidId;
+    public Long getCidadeId() {
+        return cidadeId;
     }
 
-    public void setCidId(Long cidId) {
-        this.cidId = cidId;
+    public void setCidadeId(Long cidadeId) {
+        this.cidadeId = cidadeId;
     }
 
-    public String getCidNome() {
-        return cidNome;
+    public String getCidadeNome() {
+        return cidadeNome;
     }
 
-    public void setCidNome(String cidNome) {
-        this.cidNome = cidNome;
+    public void setCidadeNome(String cidadeNome) {
+        this.cidadeNome = cidadeNome;
     }
 
-    public String getCidUf() {
-        return cidUf;
+    public String getCidadeUf() {
+        return cidadeUf;
     }
 
-    public void setCidUf(String cidUf) {
-        this.cidUf = cidUf;
+    public void setCidadeUf(String cidadeUf) {
+        this.cidadeUf = cidadeUf;
     }
 
     public CidadeEntity() {
     }
 
-    public CidadeEntity(Long cidId, String cidNome, String cidUf) {
-        this.cidId = cidId;
-        this.cidNome = cidNome;
-        this.cidUf = cidUf;
+    public CidadeEntity(Long cidadeId, String cidadeNome, String cidadeUf) {
+        this.cidadeId = cidadeId;
+        this.cidadeNome = cidadeNome;
+        this.cidadeUf = cidadeUf;
     }
 
-    public CidadeEntity(String cidNome, String cidUf) {
-        this.cidNome = cidNome;
-        this.cidUf = cidUf;
+    public CidadeEntity(String cidadeNome, String cidadeUf) {
+        this.cidadeNome = cidadeNome;
+        this.cidadeUf = cidadeUf;
     }
 }

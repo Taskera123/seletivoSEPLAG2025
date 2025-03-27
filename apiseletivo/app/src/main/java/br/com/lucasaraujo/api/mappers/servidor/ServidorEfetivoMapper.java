@@ -30,7 +30,7 @@ public class ServidorEfetivoMapper {
 
 
         return new ServidorEfetivoResponse(
-                servidorEfetivoModel.getSeMatricula(),
+                servidorEfetivoModel.getServidorMatricula(),
                 pessoaMapper.pessoaModelToResponse(servidorEfetivoModel.getPessoa())
         );
     }
@@ -41,7 +41,7 @@ public class ServidorEfetivoMapper {
         }
 
         return new ServidorEfetivoModel(
-                servidorEfetivoRequest.seMatricula(),
+                servidorEfetivoRequest.servidorMatricula(),
                 pessoaMapper.pessoaRequestToModel(servidorEfetivoRequest.pessoaRequest())
         );
     }
@@ -53,7 +53,7 @@ public class ServidorEfetivoMapper {
 
         return new ServidorEfetivoEntity(
                 servidorEfetivoModel.getId(),
-                servidorEfetivoModel.getSeMatricula(),
+                servidorEfetivoModel.getServidorMatricula(),
                 pessoaMapper.pessoaModelToEntity(servidorEfetivoModel.getPessoa())
         );
     }
@@ -65,7 +65,7 @@ public class ServidorEfetivoMapper {
 
         return new ServidorEfetivoModel(
                 servidorEfetivoEntity.getId(),
-                servidorEfetivoEntity.getSeMatricula(),
+                servidorEfetivoEntity.getServidorMatricula(),
                 pessoaMapper.pessoaEntityToModel(servidorEfetivoEntity.getPessoa())
         );
     }

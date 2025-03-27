@@ -10,16 +10,16 @@ public class LotacaoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lot_id")
-    private Long lotId;
+    private Long lotacaoId;
 
     @Column(name = "lot_data_lotacao", nullable = false)
-    private LocalDate lotDataLotacao;
+    private LocalDate lotacaoDataLotacao;
 
     @Column(name = "lot_data_remocao", nullable = false)
-    private LocalDate lotDataRemocao;
+    private LocalDate lotacaoDataRemocao;
 
     @Column(name= "lot_portaria", nullable = false)
-    private String lotPortaria;
+    private String lotacaoPortaria;
 
     @ManyToOne
     @JoinColumn(name = "pes_id")
@@ -29,12 +29,12 @@ public class LotacaoEntity {
     @JoinColumn(name = "unid_id")
     private UnidadeEntity unidade;
 
-    public Long getLotId() {
-        return lotId;
+    public Long getLotacaoId() {
+        return lotacaoId;
     }
 
-    public void setLotId(Long lotId) {
-        this.lotId = lotId;
+    public void setLotacaoId(Long lotacaoId) {
+        this.lotacaoId = lotacaoId;
     }
 
     public PessoaEntity getPessoa() {
@@ -53,48 +53,48 @@ public class LotacaoEntity {
         this.unidade = unidade;
     }
 
-    public LocalDate getLotDataLotacao() {
-        return lotDataLotacao;
+    public LocalDate getLotacaoDataLotacao() {
+        return lotacaoDataLotacao;
     }
 
-    public void setLotDataLotacao(LocalDate lotDataLotacao) {
-        this.lotDataLotacao = lotDataLotacao;
+    public void setLotacaoDataLotacao(LocalDate lotacaoDataLotacao) {
+        this.lotacaoDataLotacao = lotacaoDataLotacao;
     }
 
-    public LocalDate getLotDataRemocao() {
-        return lotDataRemocao;
+    public LocalDate getLotacaoDataRemocao() {
+        return lotacaoDataRemocao;
     }
 
-    public void setLotDataRemocao(LocalDate lotDataRemocao) {
-        this.lotDataRemocao = lotDataRemocao;
+    public void setLotacaoDataRemocao(LocalDate lotacaoDataRemocao) {
+        this.lotacaoDataRemocao = lotacaoDataRemocao;
     }
 
-    public String getLotPortaria() {
-        return lotPortaria;
+    public String getLotacaoPortaria() {
+        return lotacaoPortaria;
     }
 
-    public void setLotPortaria(String lotPortaria) {
-        this.lotPortaria = lotPortaria;
+    public void setLotacaoPortaria(String lotacaoPortaria) {
+        this.lotacaoPortaria = lotacaoPortaria;
     }
 
     public LotacaoEntity() {
     }
 
-    public LotacaoEntity(Long lotId, LocalDate lotDataLotacao, LocalDate lotDataRemocao,
-                         String lotPortaria,PessoaEntity pessoa, UnidadeEntity unidade) {
-        this.lotId = lotId;
-        this.lotDataLotacao = lotDataLotacao;
-        this.lotDataRemocao = lotDataRemocao;
-        this.lotPortaria = lotPortaria;
+    public LotacaoEntity(Long lotacaoId, LocalDate lotacaoDataLotacao, LocalDate lotacaoDataRemocao,
+                         String lotacaoPortaria,PessoaEntity pessoa, UnidadeEntity unidade) {
+        this.lotacaoId = lotacaoId;
+        this.lotacaoDataLotacao = lotacaoDataLotacao;
+        this.lotacaoDataRemocao = lotacaoDataRemocao;
+        this.lotacaoPortaria = lotacaoPortaria;
         this.pessoa = pessoa;
         this.unidade = unidade;
     }
 
-    public LotacaoEntity(LocalDate lotDataLotacao, LocalDate lotDataRemocao,
-                         String lotPortaria,PessoaEntity pessoa, UnidadeEntity unidade) {
-        this.lotDataLotacao = lotDataLotacao;
-        this.lotDataRemocao = lotDataRemocao;
-        this.lotPortaria = lotPortaria;
+    public LotacaoEntity(LocalDate lotacaoDataLotacao, LocalDate lotacaoDataRemocao,
+                         String lotacaoPortaria,PessoaEntity pessoa, UnidadeEntity unidade) {
+        this.lotacaoDataLotacao = lotacaoDataLotacao;
+        this.lotacaoDataRemocao = lotacaoDataRemocao;
+        this.lotacaoPortaria = lotacaoPortaria;
         this.pessoa = pessoa;
         this.unidade = unidade;
     }

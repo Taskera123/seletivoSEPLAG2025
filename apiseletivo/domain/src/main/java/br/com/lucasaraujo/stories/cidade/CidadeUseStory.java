@@ -13,8 +13,8 @@ public class CidadeUseStory {
         this.cidadePort = cidadePort;
     }
 
-    public CidadeModel buscarPorId(Long cidId){
-        return cidadePort.buscarPorId(cidId);
+    public CidadeModel buscarPorId(Long cidadeId){
+        return cidadePort.buscarPorId(cidadeId);
     }
 
     public PageResponse<CidadeModel> listaCidadesPaginado(PageQuery pageQuery){
@@ -25,11 +25,11 @@ public class CidadeUseStory {
         return cidadePort.criar(cidadeModel);
     }
 
-    public CidadeModel atualizar(Long cidId,CidadeModel cidadeModel){
-        return cidadePort.atualizar(cidId,cidadeModel);
+    public CidadeModel atualizar(Long cidadeId,CidadeModel cidadeModel){
+        return cidadePort.atualizar(cidadeId,cidadeModel);
     }
 
-    public void excluir(Long cidId){
-         cidadePort.excluir(cidId);
+    public void excluir(Long cidadeId){
+         cidadePort.excluir(cidadeId);
     }
 }

@@ -24,7 +24,7 @@ public class FotoMapper {
         }
 
         return new FotoModel(
-                fotoEntity.getPessoa().getPesId(),
+                fotoEntity.getPessoa().getPessoaId(),
                 fotoEntity.getLinkFoto()
         );
     }
@@ -43,7 +43,7 @@ public class FotoMapper {
         }
 
         return new FotoResponse(
-                fotoModel.getPesId(),
+                fotoModel.getPessoaId(),
                 fotoModel.getLinkFoto()
         );
     }
@@ -54,7 +54,7 @@ public class FotoMapper {
         }
 
         return new FotoModel(
-                fotoRequest.pesId(),
+                fotoRequest.pessoaId(),
                 fotoRequest.foto()
         );
     }

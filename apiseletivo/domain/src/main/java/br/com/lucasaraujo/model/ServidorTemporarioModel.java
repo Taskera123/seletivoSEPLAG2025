@@ -7,9 +7,9 @@ public class ServidorTemporarioModel {
 
     private Long id;
 
-    private LocalDate stDataAdmissao;
+    private LocalDate servidorTemporarioDataAdmissao;
 
-    private LocalDate stDataDemissao;
+    private LocalDate servidorTemporarioDataDemissao;
 
     private PessoaModel pessoa;
 
@@ -21,20 +21,20 @@ public class ServidorTemporarioModel {
         this.pessoa = pessoa;
     }
 
-    public LocalDate getStDataAdmissao() {
-        return stDataAdmissao;
+    public LocalDate getServidorTemporarioDataAdmissao() {
+        return servidorTemporarioDataAdmissao;
     }
 
-    public void setStDataAdmissao(LocalDate stDataAdmissao) {
-        this.stDataAdmissao = stDataAdmissao;
+    public void setServidorTemporarioDataAdmissao(LocalDate servidorTemporarioDataAdmissao) {
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
     }
 
-    public LocalDate getStDataDemissao() {
-        return stDataDemissao;
+    public LocalDate getServidorTemporarioDataDemissao() {
+        return servidorTemporarioDataDemissao;
     }
 
-    public void setStDataDemissao(LocalDate stDataDemissao) {
-        this.stDataDemissao = stDataDemissao;
+    public void setServidorTemporarioDataDemissao(LocalDate servidorTemporarioDataDemissao) {
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
     }
 
     public Long getId() {
@@ -48,16 +48,16 @@ public class ServidorTemporarioModel {
     public ServidorTemporarioModel() {
     }
 
-    public ServidorTemporarioModel(Long id, LocalDate stDataAdmissao, LocalDate stDataDemissao, PessoaModel pessoa) {
+    public ServidorTemporarioModel(Long id, LocalDate servidorTemporarioDataAdmissao, LocalDate servidorTemporarioDataDemissao, PessoaModel pessoa) {
         this.id = id;
-        this.stDataAdmissao = stDataAdmissao;
-        this.stDataDemissao = stDataDemissao;
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
         this.pessoa = pessoa;
     }
 
-    public ServidorTemporarioModel(LocalDate stDataAdmissao, LocalDate stDataDemissao, PessoaModel pessoa) {
-        this.stDataAdmissao = stDataAdmissao;
-        this.stDataDemissao = stDataDemissao;
+    public ServidorTemporarioModel(LocalDate servidorTemporarioDataAdmissao, LocalDate servidorTemporarioDataDemissao, PessoaModel pessoa) {
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
         this.pessoa = pessoa;
     }
 }

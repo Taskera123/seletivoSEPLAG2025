@@ -4,18 +4,18 @@ import br.com.lucasaraujo.service.Resource;
 
 public class FotoModel {
 
-    private Long pesId;
+    private Long pessoaId;
 
     private Resource foto;
 
     private String linkFoto;
 
-    public Long getPesId() {
-        return pesId;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPesId(Long pesId) {
-        this.pesId = pesId;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public Resource getFoto() {
@@ -37,8 +37,8 @@ public class FotoModel {
     public FotoModel() {
     }
 
-    public FotoModel(Long pesId, Resource foto) {
-        this.pesId = pesId;
+    public FotoModel(Long pessoaId, Resource foto) {
+        this.pessoaId = pessoaId;
         this.foto = foto;
     }
 
@@ -46,8 +46,8 @@ public class FotoModel {
         this.foto = foto;
     }
 
-    public FotoModel(Long pesId, String linkFoto) {
-        this.pesId = pesId;
+    public FotoModel(Long pessoaId, String linkFoto) {
+        this.pessoaId = pessoaId;
         this.linkFoto = linkFoto;
     }
 }

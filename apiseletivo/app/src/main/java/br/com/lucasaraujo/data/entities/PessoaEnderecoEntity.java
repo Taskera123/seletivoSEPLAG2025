@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class PessoaEnderecoEntity {
 
     @EmbeddedId
-    private PessoaEnderecoId pesEndId;
+    private PessoaEnderecoId pesEnderecoId;
 
     @ManyToOne
     @MapsId("pessoa")
@@ -20,12 +20,12 @@ public class PessoaEnderecoEntity {
     @JoinColumn(name = "end_id")
     private EnderecoEntity endereco;
 
-    public PessoaEnderecoId getPesEndId() {
-        return pesEndId;
+    public PessoaEnderecoId getPesEnderecoId() {
+        return pesEnderecoId;
     }
 
-    public void setPesEndId(PessoaEnderecoId pesEndId) {
-        this.pesEndId = pesEndId;
+    public void setPesEnderecoId(PessoaEnderecoId pesEnderecoId) {
+        this.pesEnderecoId = pesEnderecoId;
     }
 
     public PessoaEntity getPessoa() {
@@ -47,8 +47,8 @@ public class PessoaEnderecoEntity {
     public PessoaEnderecoEntity() {
     }
 
-    public PessoaEnderecoEntity(PessoaEnderecoId pesEndId) {
-        this.pesEndId = pesEndId;
+    public PessoaEnderecoEntity(PessoaEnderecoId pesEnderecoId) {
+        this.pesEnderecoId = pesEnderecoId;
     }
 
     public PessoaEnderecoEntity(PessoaEntity pessoa, EnderecoEntity endereco) {
@@ -56,8 +56,8 @@ public class PessoaEnderecoEntity {
         this.endereco = endereco;
     }
 
-    public PessoaEnderecoEntity(PessoaEnderecoId pesEndId, PessoaEntity pessoa, EnderecoEntity endereco) {
-        this.pesEndId = pesEndId;
+    public PessoaEnderecoEntity(PessoaEnderecoId pesEnderecoId, PessoaEntity pessoa, EnderecoEntity endereco) {
+        this.pesEnderecoId = pesEnderecoId;
         this.pessoa = pessoa;
         this.endereco = endereco;
     }

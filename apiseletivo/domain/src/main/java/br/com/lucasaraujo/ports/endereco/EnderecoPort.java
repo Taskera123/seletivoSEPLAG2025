@@ -8,13 +8,13 @@ public interface EnderecoPort {
 
     EnderecoModel criar(EnderecoModel EnderecoModel);
 
-    EnderecoModel buscarPorId(Long cidId);
+    EnderecoModel buscarPorId(Long cidadeId);
 
-    EnderecoModel atualizar(Long cidId, EnderecoModel EnderecoModel);
+    EnderecoModel atualizar(Long cidadeId, EnderecoModel EnderecoModel);
 
     PageResponse<EnderecoModel> listaEnderecosPaginado(PageQuery pageQuery);
 
-    void excluir(Long endId);
+    void excluir(Long enderecoId);
 
     PageResponse<EnderecoModel> buscarEnderecoFuncional(String nome, PageQuery pageQuery);
 }

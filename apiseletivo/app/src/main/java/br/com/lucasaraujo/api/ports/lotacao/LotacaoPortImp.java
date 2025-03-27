@@ -40,10 +40,10 @@ public class LotacaoPortImp implements LotacaoPort {
     }
 
     @Override
-    public LotacaoModel buscarPorId(Long cidId) {
+    public LotacaoModel buscarPorId(Long cidadeId) {
 
         return lotacaoMapper
-                .lotacaoEntityToModel( lotacaoRepository.findById(cidId)
+                .lotacaoEntityToModel( lotacaoRepository.findById(cidadeId)
                         .orElseThrow(() -> new NotFoundException("Lotação não encontrada")));
     }
 
@@ -52,11 +52,11 @@ public class LotacaoPortImp implements LotacaoPort {
 
         regrasNegocio(lotacaoModel);
 
-        PessoaModel pessoaModelBd = pessoaMapper.pessoaEntityToModel(pessoaRepository.findById(lotacaoModel.getPesId())
+        PessoaModel pessoaModelBd = pessoaMapper.pessoaEntityToModel(pessoaRepository.findById(lotacaoModel.getPessoaId())
                 .orElseThrow(() -> new NotFoundException("Pessoa não encontrada")));
 
         UnidadeModel unidadeModel = unidadeUseStory
-                .buscarPorId(lotacaoModel.getUnidId());
+                .buscarPorId(lotacaoModel.getUnidadeId());
         lotacaoModel.setPessoaModel(pessoaModelBd);
 
         lotacaoModel.setUnidadeModel(unidadeModel);
@@ -69,21 +69,21 @@ public class LotacaoPortImp implements LotacaoPort {
     }
 
     @Override
-    public LotacaoModel atualizar(Long lotId, LotacaoModel lotacaoModel) {
+    public LotacaoModel atualizar(Long lotacaoId, LotacaoModel lotacaoModel) {
 
         regrasNegocio(lotacaoModel);
 
-        LotacaoModel lotacaoModelBanco = buscarPorId(lotId);
+        LotacaoModel lotacaoModelBanco = buscarPorId(lotacaoId);
 
-        lotacaoModelBanco.setLotDataLotacao(lotacaoModel.getLotDataLotacao());
-        lotacaoModelBanco.setLotDataRemocao(lotacaoModel.getLotDataRemocao());
-        lotacaoModelBanco.setLotPortaria(lotacaoModel.getLotPortaria());
+        lotacaoModelBanco.setLotacaoDataLotacao(lotacaoModel.getLotacaoDataLotacao());
+        lotacaoModelBanco.setLotacaoDataRemocao(lotacaoModel.getLotacaoDataRemocao());
+        lotacaoModelBanco.setLotacaoPortaria(lotacaoModel.getLotacaoPortaria());
 
-        PessoaModel pessoaModelBanco = pessoaMapper.pessoaEntityToModel(pessoaRepository.findById(lotacaoModel.getPesId())
+        PessoaModel pessoaModelBanco = pessoaMapper.pessoaEntityToModel(pessoaRepository.findById(lotacaoModel.getPessoaId())
                 .orElseThrow(() -> new NotFoundException("Pessoa não encontrada")));
 
         UnidadeModel unidadeModelBanco = unidadeUseStory
-                .buscarPorId(lotacaoModel.getUnidId());
+                .buscarPorId(lotacaoModel.getUnidadeId());
         lotacaoModelBanco.setPessoaModel(pessoaModelBanco);
         lotacaoModelBanco.setUnidadeModel(unidadeModelBanco);
 
@@ -95,23 +95,23 @@ public class LotacaoPortImp implements LotacaoPort {
     }
 
     private void regrasNegocio(LotacaoModel lotacaoModel) {
-        if(lotacaoModel.getLotDataLotacao() == null){
+        if(lotacaoModel.getLotacaoDataLotacao() == null){
             throw new RuntimeException("É obrigatório informar a data de Lotação");
         }
 
-        if(lotacaoModel.getLotPortaria().isBlank()){
+        if(lotacaoModel.getLotacaoPortaria().isBlank()){
             throw new RuntimeException("É obrigatório informar a Portaria");
         }
 
-        if(lotacaoModel.getLotPortaria().length() > 100){
+        if(lotacaoModel.getLotacaoPortaria().length() > 100){
             throw new RuntimeException("Portaria deve ter no maximo 100 caracteres");
         }
 
-        if(lotacaoModel.getPesId() == null){
+        if(lotacaoModel.getPessoaId() == null){
             throw new RuntimeException("É obrigatório informar o id da pessoa");
         }
 
-        if(lotacaoModel.getUnidId() == null){
+        if(lotacaoModel.getUnidadeId() == null){
             throw new RuntimeException("É obrigatório informar o id da unidade");
         }
 
@@ -135,8 +135,8 @@ public class LotacaoPortImp implements LotacaoPort {
     }
 
     @Override
-    public void excluir(Long cidId) {
-        LotacaoModel lotacaoModelBanco = buscarPorId(cidId);
+    public void excluir(Long cidadeId) {
+        LotacaoModel lotacaoModelBanco = buscarPorId(cidadeId);
         lotacaoRepository.delete(lotacaoMapper.lotacaoModelToEntity(lotacaoModelBanco));
     }
 

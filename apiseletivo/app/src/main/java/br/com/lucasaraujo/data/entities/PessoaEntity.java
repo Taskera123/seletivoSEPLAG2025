@@ -14,7 +14,7 @@ public class PessoaEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "pessoa_seq")
     @SequenceGenerator( name = "pessoa_seq", sequenceName = "pessoa_pes_id_seq", allocationSize = 1)
     @Column(name = "pes_id")
-    private Long pesId;
+    private Long pessoaId;
 
     @Column(name = "pes_nome", length = 200, nullable = false)
     private String pesNome;
@@ -23,23 +23,23 @@ public class PessoaEntity {
     private LocalDate pesDataNascimento;
 
     @Column(name = "pes_sexo", length = 9, nullable = false)
-    private String pesSexo;
+    private String pessoaSexo;
 
     @Column(name = "pes_mae", length = 200, nullable = false)
-    private String pesMae;
+    private String pessoaMae;
 
     @Column(name = "pes_pai", length = 200, nullable = false)
-    private String pesPai;
+    private String pessoaPai;
 
     @Transient
     Set<EnderecoEntity> enderecoList;
 
-    public Long getPesId() {
-        return pesId;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPesId(Long pesId) {
-        this.pesId = pesId;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public String getPesNome() {
@@ -58,28 +58,28 @@ public class PessoaEntity {
         this.pesDataNascimento = pesDataNascimento;
     }
 
-    public String getPesSexo() {
-        return pesSexo;
+    public String getPessoaSexo() {
+        return pessoaSexo;
     }
 
-    public void setPesSexo(String pesSexo) {
-        this.pesSexo = pesSexo;
+    public void setPessoaSexo(String pessoaSexo) {
+        this.pessoaSexo = pessoaSexo;
     }
 
-    public String getPesMae() {
-        return pesMae;
+    public String getPessoaMae() {
+        return pessoaMae;
     }
 
-    public void setPesMae(String pesMae) {
-        this.pesMae = pesMae;
+    public void setPessoaMae(String pessoaMae) {
+        this.pessoaMae = pessoaMae;
     }
 
-    public String getPesPai() {
-        return pesPai;
+    public String getPessoaPai() {
+        return pessoaPai;
     }
 
-    public void setPesPai(String pesPai) {
-        this.pesPai = pesPai;
+    public void setPessoaPai(String pessoaPai) {
+        this.pessoaPai = pessoaPai;
     }
 
     public Set<EnderecoEntity> getEnderecoList() {
@@ -93,38 +93,38 @@ public class PessoaEntity {
     public PessoaEntity() {
     }
 
-    public PessoaEntity(Long pesId, String pesNome, LocalDate pesDataNascimento, String pesSexo, String pesMae, String pesPai) {
-        this.pesId = pesId;
+    public PessoaEntity(Long pessoaId, String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
+        this.pessoaId = pessoaId;
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
     }
 
-    public PessoaEntity(Long pesId, String pesNome, LocalDate pesDataNascimento, String pesSexo, String pesMae, String pesPai, Set<EnderecoEntity> enderecoList) {
-        this.pesId = pesId;
+    public PessoaEntity(Long pessoaId, String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
+        this.pessoaId = pessoaId;
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
         this.enderecoList = enderecoList;
     }
 
-    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pesSexo, String pesMae, String pesPai) {
+    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
     }
-    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pesSexo, String pesMae, String pesPai, Set<EnderecoEntity> enderecoList) {
+    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
         this.enderecoList = enderecoList;
     }
 }

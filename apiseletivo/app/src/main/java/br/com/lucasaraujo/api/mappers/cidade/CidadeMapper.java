@@ -19,9 +19,9 @@ public class CidadeMapper {
         }
 
         return new CidadeResponse(
-                cidadeModel.getCidId(),
-                cidadeModel.getCidNome(),
-                cidadeModel.getCidUf()
+                cidadeModel.getCidadeId(),
+                cidadeModel.getCidadeNome(),
+                cidadeModel.getCidadeUf()
         );
     }
 
@@ -31,8 +31,8 @@ public class CidadeMapper {
         }
 
         return new CidadeModel(
-                cidadeRequest.cidNome(),
-                cidadeRequest.cidUf()
+                cidadeRequest.cidadeNome(),
+                cidadeRequest.cidadeUf()
         );
     }
 
@@ -42,9 +42,9 @@ public class CidadeMapper {
         }
 
         return new CidadeEntity(
-                cidadeModel.getCidId(),
-                cidadeModel.getCidNome(),
-                cidadeModel.getCidUf()
+                cidadeModel.getCidadeId(),
+                cidadeModel.getCidadeNome(),
+                cidadeModel.getCidadeUf()
         );
     }
 
@@ -54,9 +54,9 @@ public class CidadeMapper {
         }
 
         return new CidadeModel(
-                cidadeEntity.getCidId(),
-                cidadeEntity.getCidNome(),
-                cidadeEntity.getCidUf()
+                cidadeEntity.getCidadeId(),
+                cidadeEntity.getCidadeNome(),
+                cidadeEntity.getCidadeUf()
         );
     }
 

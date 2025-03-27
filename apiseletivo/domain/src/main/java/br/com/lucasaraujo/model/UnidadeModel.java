@@ -5,38 +5,38 @@ import java.util.Set;
 
 public class UnidadeModel {
 
-    private Long unidId;
+    private Long unidadeId;
 
-    private String unidNome;
+    private String unidadeNome;
 
-    private String unidSigla;
+    private String unidadeSigla;
 
     private Set<EnderecoModel> enderecoList;
 
     private Set<Long>enderecoIdList;
 
-    public Long getUnidId() {
-        return unidId;
+    public Long getUnidadeId() {
+        return unidadeId;
     }
 
-    public void setUnidId(Long unidId) {
-        this.unidId = unidId;
+    public void setUnidadeId(Long unidadeId) {
+        this.unidadeId = unidadeId;
     }
 
-    public String getUnidNome() {
-        return unidNome;
+    public String getUnidadeNome() {
+        return unidadeNome;
     }
 
-    public void setUnidNome(String unidNome) {
-        this.unidNome = unidNome;
+    public void setUnidadeNome(String unidadeNome) {
+        this.unidadeNome = unidadeNome;
     }
 
-    public String getUnidSigla() {
-        return unidSigla;
+    public String getUnidadeSigla() {
+        return unidadeSigla;
     }
 
-    public void setUnidSigla(String unidSigla) {
-        this.unidSigla = unidSigla;
+    public void setUnidadeSigla(String unidadeSigla) {
+        this.unidadeSigla = unidadeSigla;
     }
 
     public Set<Long> getEnderecoIdList() {
@@ -58,28 +58,28 @@ public class UnidadeModel {
     public UnidadeModel() {
     }
 
-    public UnidadeModel(Long unidId, String unidNome, String unidSigla, Set<EnderecoModel> enderecoList) {
-        this.unidId = unidId;
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeModel(Long unidadeId, String unidadeNome, String unidadeSigla, Set<EnderecoModel> enderecoList) {
+        this.unidadeId = unidadeId;
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
         this.enderecoList = enderecoList;
     }
 
-    public UnidadeModel(String unidNome, String unidSigla, Set<Long> enderecoIdList) {
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeModel(String unidadeNome, String unidadeSigla, Set<Long> enderecoIdList) {
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
         this.enderecoIdList = enderecoIdList;
     }
 
-    public UnidadeModel(Long unidId,String unidNome, String unidSigla) {
-        this.unidId = unidId;
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeModel(Long unidadeId,String unidadeNome, String unidadeSigla) {
+        this.unidadeId = unidadeId;
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
     }
 
-    public UnidadeModel(String unidNome, String unidSigla) {
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeModel(String unidadeNome, String unidadeSigla) {
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
     }
 
 }

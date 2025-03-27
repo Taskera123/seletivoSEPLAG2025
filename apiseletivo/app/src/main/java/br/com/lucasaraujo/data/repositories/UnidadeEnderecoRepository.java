@@ -13,15 +13,15 @@ import java.util.Set;
 @Repository
 public interface UnidadeEnderecoRepository extends JpaRepository<UnidadeEnderecoEntity, UnidadeEnderecoId> {
 
-    @Query("select ue.endereco from UnidadeEnderecoEntity ue where ue.unidEndId.unidade = :unidId")
-    Set<EnderecoEntity> listaENderecosUnidade(Long unidId);
+    @Query("select ue.endereco from UnidadeEnderecoEntity ue where ue.unidEnderecoId.unidade = :unidadeId")
+    Set<EnderecoEntity> listaENderecosUnidade(Long unidadeId);
 
     @Query("select ue from UnidadeEnderecoEntity ue " +
-            "where ue.unidEndId.unidade = :unidId " +
-            "and ue.unidEndId.endereco = :endId")
-    Optional<UnidadeEnderecoEntity> findByUnidadeAndEndereco(Long unidId, Long endId);
+            "where ue.unidEnderecoId.unidade = :unidadeId " +
+            "and ue.unidEnderecoId.endereco = :enderecoId")
+    Optional<UnidadeEnderecoEntity> findByUnidadeAndEndereco(Long unidadeId, Long enderecoId);
 
     @Query("select ue from UnidadeEnderecoEntity ue " +
-            "where ue.unidEndId.unidade = :unidId")
-    Set<UnidadeEnderecoEntity> findByUnidadeId(Long unidId);
+            "where ue.unidEnderecoId.unidade = :unidadeId")
+    Set<UnidadeEnderecoEntity> findByUnidadeId(Long unidadeId);
 }

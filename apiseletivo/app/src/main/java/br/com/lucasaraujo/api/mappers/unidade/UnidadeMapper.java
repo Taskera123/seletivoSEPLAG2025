@@ -40,9 +40,9 @@ public class UnidadeMapper {
         }
 
         return new UnidadeResponse(
-                unidadeModel.getUnidId(),
-                unidadeModel.getUnidNome(),
-                unidadeModel.getUnidSigla(),
+                unidadeModel.getUnidadeId(),
+                unidadeModel.getUnidadeNome(),
+                unidadeModel.getUnidadeSigla(),
                 enderecoResponseSet
         );
     }
@@ -53,8 +53,8 @@ public class UnidadeMapper {
         }
 
         return new UnidadeModel(
-                unidadeRequest.unidNome(),
-                unidadeRequest.unidSigla(),
+                unidadeRequest.unidadeNome(),
+                unidadeRequest.unidadeSigla(),
                 unidadeRequest.enderecoIdList()
         );
     }
@@ -73,9 +73,9 @@ public class UnidadeMapper {
        }
 
         return new UnidadeModel(
-                unidadeEntity.getUnidId(),
-                unidadeEntity.getUnidNome(),
-                unidadeEntity.getUnidSigla(),
+                unidadeEntity.getUnidadeId(),
+                unidadeEntity.getUnidadeNome(),
+                unidadeEntity.getUnidadeSigla(),
                 enderecoModelSet
         );
     }
@@ -93,9 +93,9 @@ public class UnidadeMapper {
                     .collect(Collectors.toSet());
         }
         return new UnidadeEntity(
-                    unidadeModel.getUnidId(),
-                    unidadeModel.getUnidNome(),
-                    unidadeModel.getUnidSigla(),
+                    unidadeModel.getUnidadeId(),
+                    unidadeModel.getUnidadeNome(),
+                    unidadeModel.getUnidadeSigla(),
                     enderecoEntitySet
         );
 
@@ -107,11 +107,11 @@ public class UnidadeMapper {
         }
 
         return new EnderecoModel(
-                enderecoEntity.getEndId(),
-                enderecoEntity.getEndTipoLogradouro(),
-                enderecoEntity.getEndLogradouro(),
-                enderecoEntity.getEndNumero(),
-                enderecoEntity.getEndBairro(),
+                enderecoEntity.getEnderecoId(),
+                enderecoEntity.getEnderecoTipoLogradouro(),
+                enderecoEntity.getEnderecoLogradouro(),
+                enderecoEntity.getEnderecoNumero(),
+                enderecoEntity.getEnderecoBairro(),
                 cidadeMapper.cidadeEntityToModel(enderecoEntity.getCidade())
         );
     }

@@ -48,11 +48,11 @@ public class UnidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{unidId}")
-    public UnidadeResponse atualizarUnidade(@PathVariable Long unidId,
+    @PutMapping("/{unidadeId}")
+    public UnidadeResponse atualizarUnidade(@PathVariable Long unidadeId,
                                           @RequestBody UnidadeRequest unidadeRequest) {
         return unidadeMapper.unidadeModelToResponse(unidadeUseStory
-                .atualizar(unidId,unidadeMapper.unidadeRequestToModel(unidadeRequest)));
+                .atualizar(unidadeId,unidadeMapper.unidadeRequestToModel(unidadeRequest)));
     }
 
     @Operation(summary = "Excluir uma unidade pelo Id")
@@ -62,9 +62,9 @@ public class UnidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{unidId}")
-    public ResponseEntity<String> excluir(@PathVariable Long unidId) {
-        unidadeUseStory.excluir(unidId);
+    @DeleteMapping("/{unidadeId}")
+    public ResponseEntity<String> excluir(@PathVariable Long unidadeId) {
+        unidadeUseStory.excluir(unidadeId);
         return ResponseEntity.ok("Unidade excluida com sucesso");
     }
 
@@ -75,13 +75,13 @@ public class UnidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/{unidId}")
-    public UnidadeResponse buscarUnidadePorId(@PathVariable Long unidId) {
+    @GetMapping("/{unidadeId}")
+    public UnidadeResponse buscarUnidadePorId(@PathVariable Long unidadeId) {
         return unidadeMapper.unidadeModelToResponse(unidadeUseStory
-                .buscarPorId(unidId));
+                .buscarPorId(unidadeId));
     }
 
-    @Operation(summary = "Listar unidaes de forma paginado")
+    @Operation(summary = "Listar unidades de forma paginado")
     @ApiResponses(value = {
             @ApiResponse(responseCode  = "200", description  = "Unidades listadas de forma paginado"),
             @ApiResponse(responseCode  = "400", description  = "Requisição inválida"),

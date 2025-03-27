@@ -28,8 +28,8 @@ public class ServidorTemporarioMapper {
 
 
         return new ServidorTemporarioResponse(
-                servidorTemporarioModel.getStDataAdmissao(),
-                servidorTemporarioModel.getStDataDemissao(),
+                servidorTemporarioModel.getServidorTemporarioDataAdmissao(),
+                servidorTemporarioModel.getServidorTemporarioDataDemissao(),
                 pessoaMapper.pessoaModelToResponse(servidorTemporarioModel.getPessoa())
         );
     }
@@ -40,8 +40,8 @@ public class ServidorTemporarioMapper {
         }
 
         return new ServidorTemporarioModel(
-                servidorTemporarioRequest.stDataAdmissao(),
-                servidorTemporarioRequest.stDataDemissao(),
+                servidorTemporarioRequest.servidorTemporarioDataAdmissao(),
+                servidorTemporarioRequest.servidorTemporarioDataDemissao(),
                 pessoaMapper.pessoaRequestToModel(servidorTemporarioRequest.pessoaRequest())
         );
     }
@@ -53,8 +53,8 @@ public class ServidorTemporarioMapper {
 
         return new ServidorTemporarioEntity(
                 servidorTemporarioModel.getId(),
-                servidorTemporarioModel.getStDataAdmissao(),
-                servidorTemporarioModel.getStDataDemissao(),
+                servidorTemporarioModel.getServidorTemporarioDataAdmissao(),
+                servidorTemporarioModel.getServidorTemporarioDataDemissao(),
                 pessoaMapper.pessoaModelToEntity(servidorTemporarioModel.getPessoa())
         );
     }
@@ -66,8 +66,8 @@ public class ServidorTemporarioMapper {
 
         return new ServidorTemporarioModel(
                 servidorTemporarioEntity.getId(),
-                servidorTemporarioEntity.getStDataAdmissao(),
-                servidorTemporarioEntity.getStDataDemissao(),
+                servidorTemporarioEntity.getServidorTemporarioDataAdmissao(),
+                servidorTemporarioEntity.getServidorTemporarioDataDemissao(),
                 pessoaMapper.pessoaEntityToModel(servidorTemporarioEntity.getPessoa())
         );
     }

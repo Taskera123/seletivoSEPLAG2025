@@ -8,15 +8,15 @@ import java.time.LocalDate;
 
 
 public record LotacaoResponse(
-        Long lotId,
+        Long lotacaoId,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
-        LocalDate lotDataLotacao,
+        LocalDate lotacaoDataLotacao,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
-        LocalDate lotDataRemocao,
+        LocalDate lotacaoDataRemocao,
 
-        String lotPortaria,
+        String lotacaoPortaria,
 
         PessoaResponse pessoa,
 

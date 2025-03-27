@@ -5,9 +5,9 @@ import br.com.lucasaraujo.dto.endereco.EnderecoResponse;
 import java.util.Set;
 
 public record UnidadeResponse(
-        Long unidId,
-        String unidNome,
-        String unidSigla,
+        Long unidadeId,
+        String unidadeNome,
+        String unidadeSigla,
         Set<EnderecoResponse>enderecoList
 ){
 }

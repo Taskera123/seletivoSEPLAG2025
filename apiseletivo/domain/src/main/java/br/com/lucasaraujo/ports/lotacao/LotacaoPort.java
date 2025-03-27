@@ -8,11 +8,11 @@ public interface LotacaoPort {
 
     LotacaoModel criar(LotacaoModel lotacaoModel);
 
-    LotacaoModel buscarPorId(Long cidId);
+    LotacaoModel buscarPorId(Long cidadeId);
 
-    LotacaoModel atualizar(Long cidId, LotacaoModel lotacaoModel);
+    LotacaoModel atualizar(Long cidadeId, LotacaoModel lotacaoModel);
 
     PageResponse<LotacaoModel> listaLotacoesPaginado(PageQuery pageQuery);
 
-    void excluir(Long cidId);
+    void excluir(Long cidadeId);
 }

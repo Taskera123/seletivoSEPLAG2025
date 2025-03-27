@@ -12,18 +12,18 @@ public class ServidoresUnidadeVo {
 
     private String nomeUnidade;
 
-    private Long pesId;
+    private Long pessoaId;
 
     private Set<String> listLinkFotos;
 
     public ServidoresUnidadeVo() {
     }
 
-    public ServidoresUnidadeVo(String nome, String nomeUnidade,LocalDate dataNascimento,  Long pesId) {
+    public ServidoresUnidadeVo(String nome, String nomeUnidade,LocalDate dataNascimento,  Long pessoaId) {
         this.nome = nome;
         this.nomeUnidade = nomeUnidade;
         this.dataNascimento = dataNascimento;
-        this.pesId = pesId;
+        this.pessoaId = pessoaId;
     }
 
     public ServidoresUnidadeVo(String nome, String nomeUnidade) {
@@ -61,8 +61,8 @@ public class ServidoresUnidadeVo {
         this.listLinkFotos = listLinkFotos;
     }
 
-    public void setPesId(Long pesId) {
-        this.pesId = pesId;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public LocalDate getDataNascimento() {
@@ -73,8 +73,8 @@ public class ServidoresUnidadeVo {
         this.dataNascimento = dataNascimento;
     }
 
-    public Long getPesId() {
-        return pesId;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
     public int getIdade() {

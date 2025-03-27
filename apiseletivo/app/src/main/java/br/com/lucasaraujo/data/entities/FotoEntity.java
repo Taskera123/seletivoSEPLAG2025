@@ -28,7 +28,7 @@ public class FotoEntity {
     private String fpHash;
 
     @Transient
-    private Long pesId;
+    private Long pessoaId;
 
     @Transient
     private String linkFoto;
@@ -73,12 +73,12 @@ public class FotoEntity {
         this.fpId = fpId;
     }
 
-    public Long getPesId() {
-        return pesId;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPesId(Long pesId) {
-        this.pesId = pesId;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public String getLinkFoto() {
@@ -92,21 +92,21 @@ public class FotoEntity {
     public FotoEntity() {
     }
 
-    public FotoEntity(Long fpId, PessoaEntity pessoa, LocalDate fpData, String fpBucket, String fpHash, Long pesId, String linkFoto) {
+    public FotoEntity(Long fpId, PessoaEntity pessoa, LocalDate fpData, String fpBucket, String fpHash, Long pessoaId, String linkFoto) {
         this.fpId = fpId;
         this.pessoa = pessoa;
         this.fpData = fpData;
         this.fpBucket = fpBucket;
         this.fpHash = fpHash;
-        this.pesId = pesId;
+        this.pessoaId = pessoaId;
         this.linkFoto = linkFoto;
     }
 
-    public FotoEntity(LocalDate fpData, String fpBucket, String fpHash, Long pesId, String linkFoto) {
+    public FotoEntity(LocalDate fpData, String fpBucket, String fpHash, Long pessoaId, String linkFoto) {
         this.fpData = fpData;
         this.fpBucket = fpBucket;
         this.fpHash = fpHash;
-        this.pesId = pesId;
+        this.pessoaId = pessoaId;
         this.linkFoto = linkFoto;
     }
 

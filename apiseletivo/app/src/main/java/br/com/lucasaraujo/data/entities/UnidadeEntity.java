@@ -11,35 +11,35 @@ public class UnidadeEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "unidade_seq")
     @SequenceGenerator( name = "unidade_seq", sequenceName = "unidade_unid_id_seq", allocationSize = 1)
     @Column(name = "unid_id")
-    private Long unidId;
+    private Long unidadeId;
 
     @Column(name = "unid_nome", length = 200, nullable = false)
-    private String unidNome;
+    private String unidadeNome;
 
     @Column(name = "unid_sigla", length = 20, nullable = false)
-    private String unidSigla;
+    private String unidadeSigla;
 
     @Transient
     Set<EnderecoEntity> enderecoList;
 
-    public Long getUnidId() {
-        return unidId;
+    public Long getUnidadeId() {
+        return unidadeId;
     }
 
-    public void setUnidId(Long unidId) {
-        this.unidId = unidId;
+    public void setUnidadeId(Long unidadeId) {
+        this.unidadeId = unidadeId;
     }
 
-    public String getUnidNome() {
-        return unidNome;
+    public String getUnidadeNome() {
+        return unidadeNome;
     }
 
-    public void setUnidNome(String unidNome) {
-        this.unidNome = unidNome;
+    public void setUnidadeNome(String unidadeNome) {
+        this.unidadeNome = unidadeNome;
     }
 
-    public String getUnidSigla() {
-        return unidSigla;
+    public String getUnidadeSigla() {
+        return unidadeSigla;
     }
 
     public Set<EnderecoEntity> getEnderecoList() {
@@ -50,35 +50,35 @@ public class UnidadeEntity {
         this.enderecoList = enderecoList;
     }
 
-    public void setUnidSigla(String unidSigla) {
-        this.unidSigla = unidSigla;
+    public void setUnidadeSigla(String unidadeSigla) {
+        this.unidadeSigla = unidadeSigla;
     }
 
     public UnidadeEntity() {
     }
 
-    public UnidadeEntity(Long unidId, String unidNome, String unidSigla) {
-        this.unidId = unidId;
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeEntity(Long unidadeId, String unidadeNome, String unidadeSigla) {
+        this.unidadeId = unidadeId;
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
     }
 
-    public UnidadeEntity(String unidNome, String unidSigla) {
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeEntity(String unidadeNome, String unidadeSigla) {
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
     }
 
-    public UnidadeEntity(Long unidId, String unidNome, String unidSigla,Set<EnderecoEntity> enderecoList) {
-        this.unidId = unidId;
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeEntity(Long unidadeId, String unidadeNome, String unidadeSigla,Set<EnderecoEntity> enderecoList) {
+        this.unidadeId = unidadeId;
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
         this.enderecoList = enderecoList;
     }
 
-    public UnidadeEntity(String unidNome, String unidSigla,Set<EnderecoEntity> enderecoList) {
-        this.unidId = unidId;
-        this.unidNome = unidNome;
-        this.unidSigla = unidSigla;
+    public UnidadeEntity(String unidadeNome, String unidadeSigla,Set<EnderecoEntity> enderecoList) {
+        this.unidadeId = unidadeId;
+        this.unidadeNome = unidadeNome;
+        this.unidadeSigla = unidadeSigla;
         this.enderecoList = enderecoList;
     }
 

@@ -11,11 +11,11 @@ public record PessoaRequest(
          @JsonFormat(pattern = "dd/MM/yyyy")
          LocalDate pesDataNascimento,
 
-         String pesSexo,
+         String pessoaSexo,
 
-         String pesMae,
+         String pessoaMae,
 
-         String pesPai,
+         String pessoaPai,
 
          Set<Long>enderecoIdList
 ) {

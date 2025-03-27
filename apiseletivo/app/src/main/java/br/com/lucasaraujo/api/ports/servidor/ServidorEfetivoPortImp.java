@@ -63,14 +63,14 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
     }
 
     @Override
-    public ServidorEfetivoModel buscarPorId(Long pesId) {
+    public ServidorEfetivoModel buscarPorId(Long pessoaId) {
 
        ServidorEfetivoModel servidorEfetivoModelBd =  servidorEfetivoMapper
-                .servidorEfetivoEntityToModel( servidorEfetivoRepository.findById(pesId)
+                .servidorEfetivoEntityToModel( servidorEfetivoRepository.findById(pessoaId)
                         .orElseThrow(() -> new RuntimeException("Servidor Efetivo não encontrado")));
 
         Set<EnderecoEntity> enderecoEntityList = pessoaEnderecoRepository
-                .listaEnderecosPessoa(servidorEfetivoModelBd.getPessoa().getPesId());
+                .listaEnderecosPessoa(servidorEfetivoModelBd.getPessoa().getPessoaId());
         servidorEfetivoModelBd.getPessoa().setEnderecoList(enderecoMapper.enderecoEntityListToEnderecoModelList(
                 enderecoEntityList));
         return servidorEfetivoModelBd;
@@ -97,11 +97,11 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
                             .orElseThrow(() -> new NotFoundException("Endereco não encontrado")));
 
             PessoaEnderecoId pessoaEnderecoId = new PessoaEnderecoId();
-            pessoaEnderecoId.setPessoa(servidorEfetivoModel1.getPessoa().getPesId());
-            pessoaEnderecoId.setEndereco(enderecoModelBanco.getEndId());
+            pessoaEnderecoId.setPessoa(servidorEfetivoModel1.getPessoa().getPessoaId());
+            pessoaEnderecoId.setEndereco(enderecoModelBanco.getEnderecoId());
 
             PessoaEnderecoEntity pessoaEnderecoEntity = new PessoaEnderecoEntity();
-            pessoaEnderecoEntity.setPesEndId(pessoaEnderecoId);
+            pessoaEnderecoEntity.setPesEnderecoId(pessoaEnderecoId);
             pessoaEnderecoEntity.setPessoa(pessoaMapper.pessoaModelToEntity(servidorEfetivoModel1.getPessoa()));
             pessoaEnderecoEntity.setEndereco(enderecoMapper.enderecoModelToEntity(enderecoModelBanco));
             enderecoEntityList.add(pessoaEnderecoRepository.save(pessoaEnderecoEntity).getEndereco());
@@ -114,11 +114,11 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
     }
 
     private void regrasNegocio(ServidorEfetivoModel servidorEfetivoModel) {
-        if (servidorEfetivoModel.getSeMatricula().isBlank()){
+        if (servidorEfetivoModel.getServidorMatricula().isBlank()){
             throw new RuntimeException("É obrigatório a matricula");
         }
 
-        if(servidorEfetivoModel.getSeMatricula().length() >20){
+        if(servidorEfetivoModel.getServidorMatricula().length() >20){
             throw new RuntimeException("Matricula deve ter no maximo 20 caracteres");
         }
 
@@ -130,27 +130,27 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
             throw new RuntimeException("Nome deve ter no maximo 200 caracteres");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesPai().isBlank()){
+        if(servidorEfetivoModel.getPessoa().getPessoaPai().isBlank()){
             throw new RuntimeException("Nome do Pai é obrigatorio");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesPai().length() > 200){
+        if(servidorEfetivoModel.getPessoa().getPessoaPai().length() > 200){
             throw new RuntimeException("Nome do Pai deve ter no maximo 200 caracteres");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesMae().isBlank()){
+        if(servidorEfetivoModel.getPessoa().getPessoaMae().isBlank()){
             throw new RuntimeException("Nome da Mae é obrigatorio");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesMae().length() > 200){
+        if(servidorEfetivoModel.getPessoa().getPessoaMae().length() > 200){
             throw new RuntimeException("Nome da Mae deve ter no maximo 200 caracteres");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesSexo().isBlank()){
+        if(servidorEfetivoModel.getPessoa().getPessoaSexo().isBlank()){
             throw new RuntimeException("Sexo é obrigatorio");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesSexo().length() > 200){
+        if(servidorEfetivoModel.getPessoa().getPessoaSexo().length() > 200){
             throw new RuntimeException("Sexo deve ter no maximo 09 caracteres");
         }
 
@@ -162,14 +162,14 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
 
 
     @Override
-    public ServidorEfetivoModel atualizar(Long pesId, ServidorEfetivoModel servidorEfetivoModel) {
+    public ServidorEfetivoModel atualizar(Long pessoaId, ServidorEfetivoModel servidorEfetivoModel) {
         regrasNegocio(servidorEfetivoModel);
         ServidorEfetivoModel servidorEfetivoModelBD = servidorEfetivoMapper.servidorEfetivoEntityToModel(
-                servidorEfetivoRepository.findById(pesId)
+                servidorEfetivoRepository.findById(pessoaId)
                         .orElseThrow(() -> new RuntimeException("Servidor Efetivo não encontrado"))
         );
 
-        servidorEfetivoModelBD.setSeMatricula(servidorEfetivoModel.getSeMatricula());
+        servidorEfetivoModelBD.setServidorMatricula(servidorEfetivoModel.getServidorMatricula());
 
         PessoaModel pessoaModel = servidorEfetivoModel.getPessoa();
         PessoaEntity pessoaEntityBD = pessoaMapper
@@ -177,18 +177,18 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
 
         pessoaEntityBD.setPesNome(pessoaModel.getPesNome());
         pessoaEntityBD.setPesDataNascimento(pessoaModel.getPesDataNascimento());
-        pessoaEntityBD.setPesSexo(pessoaModel.getPesSexo());
-        pessoaEntityBD.setPesMae(pessoaModel.getPesMae());
-        pessoaEntityBD.setPesPai(pessoaModel.getPesPai());
+        pessoaEntityBD.setPessoaSexo(pessoaModel.getPessoaSexo());
+        pessoaEntityBD.setPessoaMae(pessoaModel.getPessoaMae());
+        pessoaEntityBD.setPessoaPai(pessoaModel.getPessoaPai());
 
 
         Set<Long> enderecoIdsNovos = new HashSet<>(pessoaModel.getEnderecoIdList());
         Set<EnderecoModel> enderecoModelBancoList = enderecoMapper.enderecoEntityListToEnderecoModelList(
-                pessoaEnderecoRepository.listaEnderecosPessoa(pesId));
+                pessoaEnderecoRepository.listaEnderecosPessoa(pessoaId));
 
         enderecoModelBancoList.forEach(endereco -> {
-            if (!enderecoIdsNovos.contains(endereco.getEndId())) {
-                PessoaEnderecoId pessoaEnderecoId = new PessoaEnderecoId(pesId, endereco.getEndId());
+            if (!enderecoIdsNovos.contains(endereco.getEnderecoId())) {
+                PessoaEnderecoId pessoaEnderecoId = new PessoaEnderecoId(pessoaId, endereco.getEnderecoId());
                 pessoaEnderecoRepository.deleteById(pessoaEnderecoId);
             }
         });
@@ -201,11 +201,11 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
             );
 
             PessoaEnderecoId pessoaEnderecoId = new PessoaEnderecoId();
-            pessoaEnderecoId.setPessoa(pessoaEntityBD.getPesId());
-            pessoaEnderecoId.setEndereco(enderecoModelBanco.getEndId());
+            pessoaEnderecoId.setPessoa(pessoaEntityBD.getPessoaId());
+            pessoaEnderecoId.setEndereco(enderecoModelBanco.getEnderecoId());
 
             PessoaEnderecoEntity pessoaEnderecoEntity = new PessoaEnderecoEntity();
-            pessoaEnderecoEntity.setPesEndId(pessoaEnderecoId);
+            pessoaEnderecoEntity.setPesEnderecoId(pessoaEnderecoId);
             pessoaEnderecoEntity.setPessoa(pessoaEntityBD);
             pessoaEnderecoEntity.setEndereco(enderecoMapper.enderecoModelToEntity(enderecoModelBanco));
             enderecoEntityList.add(pessoaEnderecoRepository.save(pessoaEnderecoEntity).getEndereco());
@@ -230,7 +230,7 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
         );
         page.getContent().forEach((p)->{
             Set<EnderecoEntity> enderecoEntityList = pessoaEnderecoRepository
-                    .listaEnderecosPessoa(p.getPessoa().getPesId());
+                    .listaEnderecosPessoa(p.getPessoa().getPessoaId());
             p.getPessoa().setEnderecoList(
                     enderecoEntityList);
         });
@@ -248,27 +248,27 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
 
     @Transactional
     @Override
-    public void excluir(Long pesId) {
-        ServidorEfetivoModel servidorEfetivoModelBanco = buscarPorId(pesId);
+    public void excluir(Long pessoaId) {
+        ServidorEfetivoModel servidorEfetivoModelBanco = buscarPorId(pessoaId);
         servidorEfetivoRepository.delete(servidorEfetivoMapper.servidorEfetivoModelToEntity(servidorEfetivoModelBanco));
         excluirPessoa(servidorEfetivoModelBanco.getPessoa());
     }
 
     private void excluirPessoa(PessoaModel pessoaModel) {
 
-        LotacaoEntity lotacaoEntity = lotacaoRepository.finByPessoaPesId(pessoaModel.getPesId());
+        LotacaoEntity lotacaoEntity = lotacaoRepository.finByPessoaPessoaId(pessoaModel.getPessoaId());
 
         if(lotacaoEntity!= null){
             throw new RuntimeException("Não é possivel exluir a pessoa pois a mesma possui lotacoes ligadas a ela");
         }
         Set<PessoaEnderecoEntity> listaPessoasEnderecos = pessoaEnderecoRepository
-                .findByPessoaId(pessoaModel.getPesId());
+                .findByPessoaId(pessoaModel.getPessoaId());
 
         listaPessoasEnderecos.forEach(pessoaEnderecoRepository::delete);
 
 
         Set<FotoEntity> listaFotosPessoa = fotoRepository
-                .findByPessoaId(pessoaModel.getPesId());
+                .findByPessoaId(pessoaModel.getPessoaId());
 
         listaFotosPessoa.forEach(fotoRepository::delete);
 
@@ -277,13 +277,13 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
     }
 
     @Override
-    public PageResponse<ServidorEfetivoModel> buscarServidoresLotadosUnidade(Long unidId, PageQuery pageQuery) {
+    public PageResponse<ServidorEfetivoModel> buscarServidoresLotadosUnidade(Long unidadeId, PageQuery pageQuery) {
         Page<ServidoresUnidadeVo> pageServidoresUnidadeVo = servidorEfetivoRepository.buscarServidoreLotadosUnidade(
-                unidId, PageRequest.of(pageQuery.getPage(), pageQuery.getSizePage())
+                unidadeId, PageRequest.of(pageQuery.getPage(), pageQuery.getSizePage())
         );
 
         pageServidoresUnidadeVo.forEach(servidor -> {
-            Set<String> listaStringBucket = fotoRepository.listaBuckets(servidor.getPesId());
+            Set<String> listaStringBucket = fotoRepository.listaBuckets(servidor.getPessoaId());
 
             Set<String> linksTemporarios = listaStringBucket.stream()
                     .map(storageService::generateTemporaryLink)

@@ -7,13 +7,13 @@ import br.com.lucasaraujo.model.ServidorEfetivoModel;
 public interface ServidorEfetivoPort {
     ServidorEfetivoModel criar(ServidorEfetivoModel servidorEfetivoModel);
 
-    ServidorEfetivoModel buscarPorId(Long pesId);
+    ServidorEfetivoModel buscarPorId(Long pessoaId);
 
-    ServidorEfetivoModel atualizar(Long pesId, ServidorEfetivoModel servidorEfetivoModel);
+    ServidorEfetivoModel atualizar(Long pessoaId, ServidorEfetivoModel servidorEfetivoModel);
 
     PageResponse<ServidorEfetivoModel> listaServidoresEfetivosPaginado(PageQuery pageQuery);
 
-    void excluir(Long pesId);
+    void excluir(Long pessoaId);
 
-    PageResponse<ServidorEfetivoModel> buscarServidoresLotadosUnidade(Long unidId, PageQuery pageQuery);
+    PageResponse<ServidorEfetivoModel> buscarServidoresLotadosUnidade(Long unidadeId, PageQuery pageQuery);
 }

@@ -23,18 +23,18 @@ public class EnderecoMapper {
 
         CidadeResponse cidadeResponse = (enderecoModel.getCidade() != null)
                 ? new CidadeResponse(
-                enderecoModel.getCidade().getCidId(),
-                enderecoModel.getCidade().getCidNome(),
-                enderecoModel.getCidade().getCidUf()
+                enderecoModel.getCidade().getCidadeId(),
+                enderecoModel.getCidade().getCidadeNome(),
+                enderecoModel.getCidade().getCidadeUf()
         )
                 : null;
 
         return new EnderecoResponse(
-                enderecoModel.getEndId(),
-                enderecoModel.getEndTipoLogradouro(),
-                enderecoModel.getEndLogradouro(),
-                enderecoModel.getEndNumero(),
-                enderecoModel.getEndBairro(),
+                enderecoModel.getEnderecoId(),
+                enderecoModel.getEnderecoTipoLogradouro(),
+                enderecoModel.getEnderecoLogradouro(),
+                enderecoModel.getEnderecoNumero(),
+                enderecoModel.getEnderecoBairro(),
                 cidadeResponse
         );
     }
@@ -47,14 +47,14 @@ public class EnderecoMapper {
 
         var cidadeRequest = enderecoRequest.cidadeCompletoRequest();
         var cidadeModel = (cidadeRequest != null)
-                ? new CidadeModel(cidadeRequest.cidId(), cidadeRequest.cidNome(), cidadeRequest.cidUf())
+                ? new CidadeModel(cidadeRequest.cidadeId(), cidadeRequest.cidadeNome(), cidadeRequest.cidadeUf())
                 : null;
 
         return new EnderecoModel(
-                enderecoRequest.endTipoLogradouro(),
-                enderecoRequest.endLogradouro(),
-                enderecoRequest.endNumero(),
-                enderecoRequest.endBairro(),
+                enderecoRequest.enderecoTipoLogradouro(),
+                enderecoRequest.enderecoLogradouro(),
+                enderecoRequest.enderecoNumero(),
+                enderecoRequest.enderecoBairro(),
                 cidadeModel
         );
     }
@@ -66,17 +66,17 @@ public class EnderecoMapper {
 
         var cidadeCompletoRequest = (enderecoModel.getCidade() != null)
                 ? new CidadeCompletoRequest(
-                enderecoModel.getCidade().getCidId(),
-                enderecoModel.getCidade().getCidNome(),
-                enderecoModel.getCidade().getCidUf()
+                enderecoModel.getCidade().getCidadeId(),
+                enderecoModel.getCidade().getCidadeNome(),
+                enderecoModel.getCidade().getCidadeUf()
         )
                 : null;
 
         return new EnderecoRequest(
-                enderecoModel.getEndTipoLogradouro(),
-                enderecoModel.getEndLogradouro(),
-                enderecoModel.getEndNumero(),
-                enderecoModel.getEndBairro(),
+                enderecoModel.getEnderecoTipoLogradouro(),
+                enderecoModel.getEnderecoLogradouro(),
+                enderecoModel.getEnderecoNumero(),
+                enderecoModel.getEnderecoBairro(),
                 cidadeCompletoRequest // Adiciona a cidade ao request
         );
     }
@@ -88,18 +88,18 @@ public class EnderecoMapper {
 
         CidadeEntity cidadeEntity = (enderecoModel.getCidade() != null)
                 ? new CidadeEntity(
-                enderecoModel.getCidade().getCidId(),
-                enderecoModel.getCidade().getCidNome(),
-                enderecoModel.getCidade().getCidUf()
+                enderecoModel.getCidade().getCidadeId(),
+                enderecoModel.getCidade().getCidadeNome(),
+                enderecoModel.getCidade().getCidadeUf()
         )
                 : null;
 
         return new EnderecoEntity(
-                enderecoModel.getEndId(),
-                enderecoModel.getEndTipoLogradouro(),
-                enderecoModel.getEndLogradouro(),
-                enderecoModel.getEndNumero(),
-                enderecoModel.getEndBairro(),
+                enderecoModel.getEnderecoId(),
+                enderecoModel.getEnderecoTipoLogradouro(),
+                enderecoModel.getEnderecoLogradouro(),
+                enderecoModel.getEnderecoNumero(),
+                enderecoModel.getEnderecoBairro(),
                 cidadeEntity
         );
     }
@@ -112,18 +112,18 @@ public class EnderecoMapper {
         // Converte CidadeEntity para CidadeModel
         CidadeModel cidadeModel = (enderecoEntity.getCidade() != null)
                 ? new CidadeModel(
-                enderecoEntity.getCidade().getCidId(),
-                enderecoEntity.getCidade().getCidNome(),
-                enderecoEntity.getCidade().getCidUf()
+                enderecoEntity.getCidade().getCidadeId(),
+                enderecoEntity.getCidade().getCidadeNome(),
+                enderecoEntity.getCidade().getCidadeUf()
         )
                 : null;
 
         return new EnderecoModel(
-                enderecoEntity.getEndId(),
-                enderecoEntity.getEndTipoLogradouro(),
-                enderecoEntity.getEndLogradouro(),
-                enderecoEntity.getEndNumero(),
-                enderecoEntity.getEndBairro(),
+                enderecoEntity.getEnderecoId(),
+                enderecoEntity.getEnderecoTipoLogradouro(),
+                enderecoEntity.getEnderecoLogradouro(),
+                enderecoEntity.getEnderecoNumero(),
+                enderecoEntity.getEnderecoBairro(),
                 cidadeModel // Incluindo a cidade convertida
         );
     }

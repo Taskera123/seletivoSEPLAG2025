@@ -16,7 +16,7 @@ public class ServidorEfetivoEntity {
     private PessoaEntity pessoa;
 
     @Column(name = "se_matricula")
-    private String seMatricula;
+    private String servidorMatricula;
 
 
     public PessoaEntity getPessoa() {
@@ -27,12 +27,12 @@ public class ServidorEfetivoEntity {
         this.pessoa = pessoa;
     }
 
-    public String getSeMatricula() {
-        return seMatricula;
+    public String getServidorMatricula() {
+        return servidorMatricula;
     }
 
-    public void setSeMatricula(String seMatricula) {
-        this.seMatricula = seMatricula;
+    public void setServidorMatricula(String servidorMatricula) {
+        this.servidorMatricula = servidorMatricula;
     }
 
     public Long getId() {
@@ -46,9 +46,9 @@ public class ServidorEfetivoEntity {
     public ServidorEfetivoEntity() {
     }
 
-    public ServidorEfetivoEntity(Long id, String seMatricula, PessoaEntity pessoa) {
+    public ServidorEfetivoEntity(Long id, String servidorMatricula, PessoaEntity pessoa) {
         this.id = id;
-        this.seMatricula = seMatricula;
+        this.servidorMatricula = servidorMatricula;
         this.pessoa = pessoa;
     }
 }

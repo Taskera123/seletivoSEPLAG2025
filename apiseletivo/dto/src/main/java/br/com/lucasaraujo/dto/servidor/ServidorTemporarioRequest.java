@@ -7,10 +7,10 @@ import java.time.LocalDate;
 
 public record ServidorTemporarioRequest(
         @JsonFormat(pattern = "dd/MM/yyyy")
-        LocalDate stDataAdmissao,
+        LocalDate servidorTemporarioDataAdmissao,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
-        LocalDate stDataDemissao,
+        LocalDate servidorTemporarioDataDemissao,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
         PessoaRequest pessoaRequest

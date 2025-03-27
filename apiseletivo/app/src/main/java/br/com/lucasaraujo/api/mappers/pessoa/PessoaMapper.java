@@ -41,12 +41,12 @@ public class PessoaMapper {
         }
 
         return new PessoaResponse(
-                pessoaModel.getPesId(),
+                pessoaModel.getPessoaId(),
                 pessoaModel.getPesNome(),
                 pessoaModel.getPesDataNascimento(),
-                pessoaModel.getPesSexo(),
-                pessoaModel.getPesMae(),
-                pessoaModel.getPesPai(),
+                pessoaModel.getPessoaSexo(),
+                pessoaModel.getPessoaMae(),
+                pessoaModel.getPessoaPai(),
                 enderecoResponseSet
         );
     }
@@ -60,9 +60,9 @@ public class PessoaMapper {
                 pessoaRequest.pesNome(),
                 pessoaRequest.pesDataNascimento(),
                 pessoaRequest.enderecoIdList(),
-                pessoaRequest.pesSexo(),
-                pessoaRequest.pesMae(),
-                pessoaRequest.pesPai()
+                pessoaRequest.pessoaSexo(),
+                pessoaRequest.pessoaMae(),
+                pessoaRequest.pessoaPai()
         );
     }
 
@@ -81,13 +81,13 @@ public class PessoaMapper {
         }
 
         return new PessoaModel(
-                pessoaEntity.getPesId(),
+                pessoaEntity.getPessoaId(),
                 pessoaEntity.getPesNome(),
                 pessoaEntity.getPesDataNascimento(),
                 enderecoModelSet,
-                pessoaEntity.getPesSexo(),
-                pessoaEntity.getPesMae(),
-                pessoaEntity.getPesPai()
+                pessoaEntity.getPessoaSexo(),
+                pessoaEntity.getPessoaMae(),
+                pessoaEntity.getPessoaPai()
 
         );
     }
@@ -104,12 +104,12 @@ public class PessoaMapper {
                     .collect(Collectors.toSet());
         }
         return new PessoaEntity(
-                pessoaModel.getPesId(),
+                pessoaModel.getPessoaId(),
                 pessoaModel.getPesNome(),
                 pessoaModel.getPesDataNascimento(),
-                pessoaModel.getPesSexo(),
-                pessoaModel.getPesMae(),
-                pessoaModel.getPesPai(),
+                pessoaModel.getPessoaSexo(),
+                pessoaModel.getPessoaMae(),
+                pessoaModel.getPessoaPai(),
                 enderecoEntitySet
         );
     }
@@ -120,11 +120,11 @@ public class PessoaMapper {
         }
 
         return new EnderecoModel(
-                enderecoEntity.getEndId(),
-                enderecoEntity.getEndTipoLogradouro(),
-                enderecoEntity.getEndLogradouro(),
-                enderecoEntity.getEndNumero(),
-                enderecoEntity.getEndBairro(),
+                enderecoEntity.getEnderecoId(),
+                enderecoEntity.getEnderecoTipoLogradouro(),
+                enderecoEntity.getEnderecoLogradouro(),
+                enderecoEntity.getEnderecoNumero(),
+                enderecoEntity.getEnderecoBairro(),
                 cidadeMapper.cidadeEntityToModel(enderecoEntity.getCidade())
         );
     }

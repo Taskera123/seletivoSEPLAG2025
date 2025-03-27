@@ -51,12 +51,12 @@ public class UnidadePortImp implements UnidadePort {
     }
 
     @Override
-    public UnidadeModel buscarPorId(Long endId) {
+    public UnidadeModel buscarPorId(Long enderecoId) {
         UnidadeModel unidadeModel = unidadeMapper
-                .unidadeEntityToModel( unidadeRepository.findById(endId)
+                .unidadeEntityToModel( unidadeRepository.findById(enderecoId)
                         .orElseThrow(() -> new NotFoundException("Unidade não encontrada")));
         Set<EnderecoEntity> enderecoEntityList = unidadeEnderecoRepository
-                .listaENderecosUnidade(unidadeModel.getUnidId());
+                .listaENderecosUnidade(unidadeModel.getUnidadeId());
         unidadeModel.setEnderecoList(enderecoMapper.enderecoEntityListToEnderecoModelList(
                 enderecoEntityList));
         return unidadeModel;
@@ -65,11 +65,11 @@ public class UnidadePortImp implements UnidadePort {
     @Override
     public UnidadeModel criar(UnidadeModel unidadeModel) {
 
-        if(unidadeModel.getUnidSigla().isBlank() || unidadeModel.getUnidSigla().length()>20){
+        if(unidadeModel.getUnidadeSigla().isBlank() || unidadeModel.getUnidadeSigla().length()>20){
             throw new RuntimeException("Sigla da unidade não pode ser vazio e deve ter no máximo 20 caracteres");
         }
 
-        if(unidadeModel.getUnidNome().isBlank() || unidadeModel.getUnidNome().length() >200){
+        if(unidadeModel.getUnidadeNome().isBlank() || unidadeModel.getUnidadeNome().length() >200){
             throw new RuntimeException("Nome da unidade não pode ser vazio e deve ter no máximo 200 caracteres");
         }
 
@@ -89,11 +89,11 @@ public class UnidadePortImp implements UnidadePort {
                     .orElseThrow(() -> new NotFoundException("Endereco não encontrado")));
 
             UnidadeEnderecoId unidadeEnderecoId = new UnidadeEnderecoId();
-            unidadeEnderecoId.setUnidade(unidadeModelBanco.getUnidId());
-            unidadeEnderecoId.setEndereco(enderecoModelBanco.getEndId());
+            unidadeEnderecoId.setUnidade(unidadeModelBanco.getUnidadeId());
+            unidadeEnderecoId.setEndereco(enderecoModelBanco.getEnderecoId());
 
             UnidadeEnderecoEntity unidadeEnderecoEntity = new UnidadeEnderecoEntity();
-            unidadeEnderecoEntity.setUnidEndId(unidadeEnderecoId);
+            unidadeEnderecoEntity.setUnidEnderecoId(unidadeEnderecoId);
             unidadeEnderecoEntity.setUnidade(unidadeMapper.unidadeModelToEntity(unidadeModelBanco));
             unidadeEnderecoEntity.setEndereco(enderecoMapper.enderecoModelToEntity(enderecoModelBanco));
             enderecoEntityList.add(unidadeEnderecoRepository.save(unidadeEnderecoEntity).getEndereco());
@@ -107,22 +107,22 @@ public class UnidadePortImp implements UnidadePort {
     }
 
     @Override
-    public UnidadeModel atualizar(Long unidId, UnidadeModel unidadeModel) {
+    public UnidadeModel atualizar(Long unidadeId, UnidadeModel unidadeModel) {
 
-        if (unidadeModel.getUnidSigla().isBlank() || unidadeModel.getUnidSigla().length() > 20) {
+        if (unidadeModel.getUnidadeSigla().isBlank() || unidadeModel.getUnidadeSigla().length() > 20) {
             throw new RuntimeException("Sigla da unidade não pode ser vazio e deve ter no máximo 20 caracteres");
         }
 
-        if (unidadeModel.getUnidNome().isBlank() || unidadeModel.getUnidNome().length() > 200) {
+        if (unidadeModel.getUnidadeNome().isBlank() || unidadeModel.getUnidadeNome().length() > 200) {
             throw new RuntimeException("Nome da unidade não pode ser vazio e deve ter no máximo 200 caracteres");
         }
 
-        UnidadeModel unidadeModelBanco = unidadeRepository.findById(unidId)
+        UnidadeModel unidadeModelBanco = unidadeRepository.findById(unidadeId)
                 .map(unidadeEntity -> unidadeMapper.unidadeEntityToModel(unidadeEntity))
                 .orElseThrow(() -> new NotFoundException("Unidade não encontrada"));
 
-        unidadeModelBanco.setUnidSigla(unidadeModel.getUnidSigla());
-        unidadeModelBanco.setUnidNome(unidadeModel.getUnidNome());
+        unidadeModelBanco.setUnidadeSigla(unidadeModel.getUnidadeSigla());
+        unidadeModelBanco.setUnidadeNome(unidadeModel.getUnidadeNome());
 
         unidadeRepository.save(unidadeMapper.unidadeModelToEntity(unidadeModelBanco));
 
@@ -130,10 +130,10 @@ public class UnidadePortImp implements UnidadePort {
 
 
         Set<UnidadeEnderecoEntity> unidadeEnderecosExistentes = unidadeEnderecoRepository
-                .findByUnidadeId(unidadeModelBanco.getUnidId());
+                .findByUnidadeId(unidadeModelBanco.getUnidadeId());
 
         unidadeEnderecosExistentes.forEach(unidadeEnderecoEntity -> {
-            Long enderecoId = unidadeEnderecoEntity.getEndereco().getEndId();
+            Long enderecoId = unidadeEnderecoEntity.getEndereco().getEnderecoId();
             if (!enderecoIdsAtualizados.contains(enderecoId)) {
                 unidadeEnderecoRepository.delete(unidadeEnderecoEntity);
             }
@@ -148,7 +148,7 @@ public class UnidadePortImp implements UnidadePort {
                     .orElseThrow(() -> new NotFoundException("Endereço não encontrado"));
 
             Optional<UnidadeEnderecoEntity> unidadeEnderecoExistente = unidadeEnderecoRepository.findByUnidadeAndEndereco(
-                    unidadeModelBanco.getUnidId(), enderecoModelBanco.getEndId());
+                    unidadeModelBanco.getUnidadeId(), enderecoModelBanco.getEnderecoId());
 
             if (unidadeEnderecoExistente.isPresent()) {
                 UnidadeEnderecoEntity unidadeEnderecoEntity = unidadeEnderecoExistente.get();
@@ -158,11 +158,11 @@ public class UnidadePortImp implements UnidadePort {
                 unidadeEnderecoRepository.save(unidadeEnderecoEntity);
             } else {
                 UnidadeEnderecoId unidadeEnderecoId = new UnidadeEnderecoId();
-                unidadeEnderecoId.setUnidade(unidadeModelBanco.getUnidId());
-                unidadeEnderecoId.setEndereco(enderecoModelBanco.getEndId());
+                unidadeEnderecoId.setUnidade(unidadeModelBanco.getUnidadeId());
+                unidadeEnderecoId.setEndereco(enderecoModelBanco.getEnderecoId());
 
                 UnidadeEnderecoEntity unidadeEnderecoEntity = new UnidadeEnderecoEntity();
-                unidadeEnderecoEntity.setUnidEndId(unidadeEnderecoId);
+                unidadeEnderecoEntity.setUnidEnderecoId(unidadeEnderecoId);
                 unidadeEnderecoEntity.setUnidade(unidadeMapper.unidadeModelToEntity(unidadeModelBanco));
                 unidadeEnderecoEntity.setEndereco(enderecoMapper.enderecoModelToEntity(enderecoModelBanco));
 
@@ -184,7 +184,7 @@ public class UnidadePortImp implements UnidadePort {
         );
         page.getContent().forEach((u)->{
             Set<EnderecoEntity> enderecoEntityList = unidadeEnderecoRepository
-                    .listaENderecosUnidade(u.getUnidId());
+                    .listaENderecosUnidade(u.getUnidadeId());
             u.setEnderecoList(
                     enderecoEntityList);
         });
@@ -201,16 +201,16 @@ public class UnidadePortImp implements UnidadePort {
 
     @Override
     @Transactional
-    public void excluir(Long unidId) {
+    public void excluir(Long unidadeId) {
 
-        LotacaoEntity lotacaoEntity = lotacaoRepository.finByUnidadeUnidId(unidId);
+        LotacaoEntity lotacaoEntity = lotacaoRepository.finByUnidadeUnidadeId(unidadeId);
 
         if(lotacaoEntity!= null){
             throw new RuntimeException("Não é possivel exluir a unidade pois a mesma possui lotaoes ligadas a ela");
         }
-        UnidadeModel unidadeModelBanco = buscarPorId(unidId);
+        UnidadeModel unidadeModelBanco = buscarPorId(unidadeId);
         Set<UnidadeEnderecoEntity> listaUnidadesEnderecos = unidadeEnderecoRepository
-                .findByUnidadeId(unidId);
+                .findByUnidadeId(unidadeId);
 
         listaUnidadesEnderecos.forEach(unidadeEnderecoRepository::delete);
         unidadeRepository.delete(unidadeMapper.unidadeModelToEntity(unidadeModelBanco));

@@ -71,13 +71,13 @@ public class ServidorTemporarioController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{pesId}")
-    public ServidorTemporarioResponse atualizarServidorTemporario(@PathVariable Long pesId,
+    @PutMapping("/{pessoaId}")
+    public ServidorTemporarioResponse atualizarServidorTemporario(@PathVariable Long pessoaId,
                                                                   @RequestBody ServidorTemporarioRequest servidorTemporarioRequest
     ) {
 
         return servidorTemporarioMapper.servidorTemporarioModelToResponse(servidorTemporarioUseStory
-                .atualizar(pesId,servidorTemporarioMapper.servidorTemporarioRequestToModel(servidorTemporarioRequest)));
+                .atualizar(pessoaId,servidorTemporarioMapper.servidorTemporarioRequestToModel(servidorTemporarioRequest)));
     }
 
     @Operation(summary = "Fazer upload de fotos de um servidor temporário")
@@ -88,13 +88,13 @@ public class ServidorTemporarioController {
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
 
-    @PostMapping(value = "/upload-fotos/{pesId}",
+    @PostMapping(value = "/upload-fotos/{pessoaId}",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
 
     public List<FotoResponse> uploadFotos(
-            @PathVariable Long pesId,
+            @PathVariable Long pessoaId,
             @RequestParam(name = "fotos", required = false) List<MultipartFile> fotos
     ){
         List<Resource> listaResource = fotos.stream().map(this::resourceOf).toList();
@@ -102,7 +102,7 @@ public class ServidorTemporarioController {
         List<FotoRequest>listaFotoRequest =new ArrayList<FotoRequest>();
 
         listaResource.forEach((f)->{
-            FotoRequest fotoRequest = new FotoRequest(pesId,f);
+            FotoRequest fotoRequest = new FotoRequest(pessoaId,f);
             listaFotoRequest.add(fotoRequest);
         });
 
@@ -120,10 +120,10 @@ public class ServidorTemporarioController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{pesId}")
-    public ResponseEntity<String> excluir(@PathVariable Long pesId) {
-        servidorTemporarioUseStory.excluir(pesId);
-        servidorTemporarioUseStory.excluir(pesId);
+    @DeleteMapping("/{pessoaId}")
+    public ResponseEntity<String> excluir(@PathVariable Long pessoaId) {
+        servidorTemporarioUseStory.excluir(pessoaId);
+        servidorTemporarioUseStory.excluir(pessoaId);
         return ResponseEntity.ok("Servidor temporario excluido com sucesso");
     }
 
@@ -134,10 +134,10 @@ public class ServidorTemporarioController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/{pesId}")
-    public ServidorTemporarioResponse buscarServidorTemporarioPorId(@PathVariable Long pesId) {
+    @GetMapping("/{pessoaId}")
+    public ServidorTemporarioResponse buscarServidorTemporarioPorId(@PathVariable Long pessoaId) {
         return servidorTemporarioMapper.servidorTemporarioModelToResponse(servidorTemporarioUseStory
-                .buscarPorId(pesId));
+                .buscarPorId(pessoaId));
     }
 
 

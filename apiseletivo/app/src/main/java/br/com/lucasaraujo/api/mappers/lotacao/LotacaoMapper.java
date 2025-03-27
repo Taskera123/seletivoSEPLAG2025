@@ -30,10 +30,10 @@ public class LotacaoMapper {
         }
 
         return new LotacaoResponse(
-                lotacaoModel.getLotId(),
-                lotacaoModel.getLotDataLotacao(),
-                lotacaoModel.getLotDataRemocao(),
-                lotacaoModel.getLotPortaria(),
+                lotacaoModel.getLotacaoId(),
+                lotacaoModel.getLotacaoDataLotacao(),
+                lotacaoModel.getLotacaoDataRemocao(),
+                lotacaoModel.getLotacaoPortaria(),
                 pessoaMapper.pessoaModelToResponse(lotacaoModel.getPessoaModel()),
                 unidadeMapper.unidadeModelToResponse(lotacaoModel.getUnidadeModel())
         );
@@ -46,11 +46,11 @@ public class LotacaoMapper {
         }
 
         return new LotacaoModel(
-                lotacaoRequest.lotDataLotacao(),
-                lotacaoRequest.lotDataRemocao(),
-                lotacaoRequest.lotPortaria(),
-                lotacaoRequest.pesId(),
-                lotacaoRequest.unidId()
+                lotacaoRequest.lotacaoDataLotacao(),
+                lotacaoRequest.lotacaoDataRemocao(),
+                lotacaoRequest.lotacaoPortaria(),
+                lotacaoRequest.pessoaId(),
+                lotacaoRequest.unidadeId()
         );
     }
 
@@ -60,10 +60,10 @@ public class LotacaoMapper {
         }
 
         return new LotacaoEntity(
-                lotacaoModel.getLotId(),
-                lotacaoModel.getLotDataLotacao(),
-                lotacaoModel.getLotDataRemocao(),
-                lotacaoModel.getLotPortaria(),
+                lotacaoModel.getLotacaoId(),
+                lotacaoModel.getLotacaoDataLotacao(),
+                lotacaoModel.getLotacaoDataRemocao(),
+                lotacaoModel.getLotacaoPortaria(),
                 pessoaMapper.pessoaModelToEntity(lotacaoModel.getPessoaModel()),
                 unidadeMapper.unidadeModelToEntity(lotacaoModel.getUnidadeModel())
         );
@@ -75,10 +75,10 @@ public class LotacaoMapper {
         }
 
         return new LotacaoModel(
-                lotacaoEntity.getLotId(),
-                lotacaoEntity.getLotDataLotacao(),
-                lotacaoEntity.getLotDataRemocao(),
-                lotacaoEntity.getLotPortaria(),
+                lotacaoEntity.getLotacaoId(),
+                lotacaoEntity.getLotacaoDataLotacao(),
+                lotacaoEntity.getLotacaoDataRemocao(),
+                lotacaoEntity.getLotacaoPortaria(),
                 pessoaMapper.pessoaEntityToModel(lotacaoEntity.getPessoa()),
                 unidadeMapper.unidadeEntityToModel(lotacaoEntity.getUnidade())
         );

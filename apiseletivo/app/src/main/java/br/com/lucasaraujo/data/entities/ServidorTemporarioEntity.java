@@ -18,10 +18,10 @@ public class ServidorTemporarioEntity {
     private PessoaEntity pessoa;
 
     @Column(name = "st_data_admissao")
-    private LocalDate stDataAdmissao;
+    private LocalDate servidorTemporarioDataAdmissao;
 
     @Column(name = "st_data_demissao")
-    private LocalDate stDataDemissao;
+    private LocalDate servidorTemporarioDataDemissao;
 
     public PessoaEntity getPessoa() {
         return pessoa;
@@ -31,20 +31,20 @@ public class ServidorTemporarioEntity {
         this.pessoa = pessoa;
     }
 
-    public LocalDate getStDataAdmissao() {
-        return stDataAdmissao;
+    public LocalDate getServidorTemporarioDataAdmissao() {
+        return servidorTemporarioDataAdmissao;
     }
 
-    public void setStDataAdmissao(LocalDate stDataAdmissao) {
-        this.stDataAdmissao = stDataAdmissao;
+    public void setServidorTemporarioDataAdmissao(LocalDate servidorTemporarioDataAdmissao) {
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
     }
 
-    public LocalDate getStDataDemissao() {
-        return stDataDemissao;
+    public LocalDate getServidorTemporarioDataDemissao() {
+        return servidorTemporarioDataDemissao;
     }
 
-    public void setStDataDemissao(LocalDate stDataDemissao) {
-        this.stDataDemissao = stDataDemissao;
+    public void setServidorTemporarioDataDemissao(LocalDate servidorTemporarioDataDemissao) {
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
     }
 
     public Long getId() {
@@ -58,16 +58,16 @@ public class ServidorTemporarioEntity {
     public ServidorTemporarioEntity() {
     }
 
-    public ServidorTemporarioEntity(Long id, LocalDate stDataAdmissao, LocalDate stDataDemissao, PessoaEntity pessoa) {
+    public ServidorTemporarioEntity(Long id, LocalDate servidorTemporarioDataAdmissao, LocalDate servidorTemporarioDataDemissao, PessoaEntity pessoa) {
         this.id = id;
-        this.stDataAdmissao = stDataAdmissao;
-        this.stDataDemissao = stDataDemissao;
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
         this.pessoa = pessoa;
     }
 
-    public ServidorTemporarioEntity(LocalDate stDataAdmissao, LocalDate stDataDemissao, PessoaEntity pessoa) {
-        this.stDataAdmissao = stDataAdmissao;
-        this.stDataDemissao = stDataDemissao;
+    public ServidorTemporarioEntity(LocalDate servidorTemporarioDataAdmissao, LocalDate servidorTemporarioDataDemissao, PessoaEntity pessoa) {
+        this.servidorTemporarioDataAdmissao = servidorTemporarioDataAdmissao;
+        this.servidorTemporarioDataDemissao = servidorTemporarioDataDemissao;
         this.pessoa = pessoa;
     }
 }

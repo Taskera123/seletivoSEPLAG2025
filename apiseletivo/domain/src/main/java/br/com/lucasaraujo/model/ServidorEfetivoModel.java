@@ -7,7 +7,7 @@ public class ServidorEfetivoModel {
 
     private Long id;
 
-    private String seMatricula;
+    private String servidorMatricula;
 
     private PessoaModel pessoa;
 
@@ -27,12 +27,12 @@ public class ServidorEfetivoModel {
         this.pessoa = pessoa;
     }
 
-    public String getSeMatricula() {
-        return seMatricula;
+    public String getServidorMatricula() {
+        return servidorMatricula;
     }
 
-    public void setSeMatricula(String seMatricula) {
-        this.seMatricula = seMatricula;
+    public void setServidorMatricula(String servidorMatricula) {
+        this.servidorMatricula = servidorMatricula;
     }
 
     public Long getId() {
@@ -77,14 +77,14 @@ public class ServidorEfetivoModel {
 
     public ServidorEfetivoModel() {
     }
-    public ServidorEfetivoModel(Long id, String seMatricula, PessoaModel pessoa) {
+    public ServidorEfetivoModel(Long id, String servidorMatricula, PessoaModel pessoa) {
         this.id = id;
-        this.seMatricula = seMatricula;
+        this.servidorMatricula = servidorMatricula;
         this.pessoa = pessoa;
     }
 
-    public ServidorEfetivoModel(String seMatricula, PessoaModel pessoa) {
-        this.seMatricula = seMatricula;
+    public ServidorEfetivoModel(String servidorMatricula, PessoaModel pessoa) {
+        this.servidorMatricula = servidorMatricula;
         this.pessoa = pessoa;
     }
 

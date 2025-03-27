@@ -8,11 +8,11 @@ public interface CidadePort {
 
     CidadeModel criar(CidadeModel cidadeModel);
 
-    CidadeModel buscarPorId(Long cidId);
+    CidadeModel buscarPorId(Long cidadeId);
 
-    CidadeModel atualizar(Long cidId, CidadeModel cidadeModel);
+    CidadeModel atualizar(Long cidadeId, CidadeModel cidadeModel);
 
     PageResponse<CidadeModel> listaCidadesPaginado(PageQuery pageQuery);
 
-    void excluir(Long cidId);
+    void excluir(Long cidadeId);
 }

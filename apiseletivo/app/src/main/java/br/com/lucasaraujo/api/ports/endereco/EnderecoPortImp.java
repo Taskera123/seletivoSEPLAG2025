@@ -40,10 +40,10 @@ public class EnderecoPortImp implements EnderecoPort {
 
         validarRegrasEndereco(enderecoModel);
 
-        if (enderecoModel.getCidade().getCidId() == null) {
+        if (enderecoModel.getCidade().getCidadeId() == null) {
             enderecoModel.setCidade(cidadeUseStory.criar(enderecoModel.getCidade()));
         } else {
-            cidadeUseStory.atualizar(enderecoModel.getCidade().getCidId(), enderecoModel.getCidade());
+            cidadeUseStory.atualizar(enderecoModel.getCidade().getCidadeId(), enderecoModel.getCidade());
         }
 
         return enderecoMapper.enderecoEntityToModel(
@@ -55,26 +55,26 @@ public class EnderecoPortImp implements EnderecoPort {
 
 
     @Override
-    public EnderecoModel atualizar(Long cidId, EnderecoModel enderecoModel) {
+    public EnderecoModel atualizar(Long cidadeId, EnderecoModel enderecoModel) {
 
         validarRegrasEndereco(enderecoModel);
 
-        EnderecoModel enderecoModelBanco = buscarPorId(cidId);
+        EnderecoModel enderecoModelBanco = buscarPorId(cidadeId);
 
 
         CidadeModel cidadeModelBanco = null;
 
-        if(enderecoModel.getCidade().getCidId()== null){
+        if(enderecoModel.getCidade().getCidadeId()== null){
              cidadeModelBanco = cidadeUseStory.criar(enderecoModel.getCidade());
         }else{
-            cidadeModelBanco= cidadeUseStory.atualizar(enderecoModel.getCidade().getCidId()
+            cidadeModelBanco= cidadeUseStory.atualizar(enderecoModel.getCidade().getCidadeId()
                     ,enderecoModel.getCidade());
         }
 
-        enderecoModelBanco.setEndTipoLogradouro(enderecoModel.getEndTipoLogradouro());
-        enderecoModelBanco.setEndLogradouro(enderecoModel.getEndLogradouro());
-        enderecoModelBanco.setEndNumero(enderecoModel.getEndNumero());
-        enderecoModelBanco.setEndBairro(enderecoModel.getEndBairro());
+        enderecoModelBanco.setEnderecoTipoLogradouro(enderecoModel.getEnderecoTipoLogradouro());
+        enderecoModelBanco.setEnderecoLogradouro(enderecoModel.getEnderecoLogradouro());
+        enderecoModelBanco.setEnderecoNumero(enderecoModel.getEnderecoNumero());
+        enderecoModelBanco.setEnderecoBairro(enderecoModel.getEnderecoBairro());
         enderecoModelBanco.setCidade(cidadeModelBanco);
 
         return enderecoMapper.enderecoEntityToModel(
@@ -102,10 +102,10 @@ public class EnderecoPortImp implements EnderecoPort {
     }
 
     @Override
-    public void excluir(Long endId) {
+    public void excluir(Long enderecoId) {
         try{
         EnderecoEntity enderecoEntity  = enderecoMapper
-                .enderecoModelToEntity(buscarPorId(endId));
+                .enderecoModelToEntity(buscarPorId(enderecoId));
         enderecoRepository.delete(enderecoEntity);
         }catch (Exception e){
             throw new RuntimeException("Não foi possível excluir o endereco pois o mesmo está ligado a pessoas e/ou unidades");
@@ -115,32 +115,32 @@ public class EnderecoPortImp implements EnderecoPort {
 
     private void validarRegrasEndereco(EnderecoModel enderecoModel) {
 
-        if (enderecoModel.getEndTipoLogradouro().isBlank()){
+        if (enderecoModel.getEnderecoTipoLogradouro().isBlank()){
             throw new RuntimeException("É obrigatório informar o tipo de logradouro");
         }
 
-        if (enderecoModel.getEndTipoLogradouro().length()>50){
+        if (enderecoModel.getEnderecoTipoLogradouro().length()>50){
             throw new RuntimeException("Tamanho máximo para tipo de logradouro: 50 caracteres");
         }
 
-        if (enderecoModel.getEndLogradouro().isBlank()){
+        if (enderecoModel.getEnderecoLogradouro().isBlank()){
             throw new RuntimeException("É obrigatório informar o logradouro");
         }
 
 
-        if (enderecoModel.getEndLogradouro().length()>220){
+        if (enderecoModel.getEnderecoLogradouro().length()>220){
             throw new RuntimeException("Tamanho máximo para logradouro: 200 caracteres");
         }
 
-        if (enderecoModel.getEndBairro().isBlank()){
+        if (enderecoModel.getEnderecoBairro().isBlank()){
             throw new RuntimeException("É obrigatório informar o bairro");
         }
 
-        if (enderecoModel.getEndBairro().length()>220){
+        if (enderecoModel.getEnderecoBairro().length()>220){
             throw new RuntimeException("Tamanho máximo para bairro: 100 caracteres");
         }
 
-        if (enderecoModel.getEndNumero() == null){
+        if (enderecoModel.getEnderecoNumero() == null){
             throw new RuntimeException("É obrigatório informar o numero");
         }
         if (enderecoModel.getCidade() == null){
@@ -149,9 +149,9 @@ public class EnderecoPortImp implements EnderecoPort {
     }
 
     @Override
-    public EnderecoModel buscarPorId(Long cidId) {
+    public EnderecoModel buscarPorId(Long cidadeId) {
         return enderecoMapper
-                .enderecoEntityToModel( enderecoRepository.findById(cidId)
+                .enderecoEntityToModel( enderecoRepository.findById(cidadeId)
                         .orElseThrow(() -> new NotFoundException("Endereco não encontrado")));
     }
 

@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class UnidadeEnderecoEntity {
 
     @EmbeddedId
-    private UnidadeEnderecoId unidEndId;
+    private UnidadeEnderecoId unidEnderecoId;
 
     @ManyToOne
     @MapsId("unidade")
@@ -19,12 +19,12 @@ public class UnidadeEnderecoEntity {
     @JoinColumn(name = "end_id")
     private EnderecoEntity endereco;
 
-    public UnidadeEnderecoId getUnidEndId() {
-        return unidEndId;
+    public UnidadeEnderecoId getUnidEnderecoId() {
+        return unidEnderecoId;
     }
 
-    public void setUnidEndId(UnidadeEnderecoId unidEndId) {
-        this.unidEndId = unidEndId;
+    public void setUnidEnderecoId(UnidadeEnderecoId unidEnderecoId) {
+        this.unidEnderecoId = unidEnderecoId;
     }
 
     public UnidadeEntity getUnidade() {
@@ -46,8 +46,8 @@ public class UnidadeEnderecoEntity {
     public UnidadeEnderecoEntity() {
     }
 
-    public UnidadeEnderecoEntity(UnidadeEnderecoId unidEndId) {
-        this.unidEndId = unidEndId;
+    public UnidadeEnderecoEntity(UnidadeEnderecoId unidEnderecoId) {
+        this.unidEnderecoId = unidEnderecoId;
     }
 
     public UnidadeEnderecoEntity(UnidadeEntity unidade, EnderecoEntity endereco) {
@@ -55,8 +55,8 @@ public class UnidadeEnderecoEntity {
         this.endereco = endereco;
     }
 
-    public UnidadeEnderecoEntity(UnidadeEnderecoId unidEndId, UnidadeEntity unidade, EnderecoEntity endereco) {
-        this.unidEndId = unidEndId;
+    public UnidadeEnderecoEntity(UnidadeEnderecoId unidEnderecoId, UnidadeEntity unidade, EnderecoEntity endereco) {
+        this.unidEnderecoId = unidEnderecoId;
         this.unidade = unidade;
         this.endereco = endereco;
     }

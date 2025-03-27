@@ -11,10 +11,10 @@ import java.util.Set;
 public interface FotoRepository extends JpaRepository<FotoEntity,Long> {
 
     @Query("select f from FotoEntity f " +
-            "where f.pessoa.pesId = :pesId")
-    Set<FotoEntity> findByPessoaId(Long pesId);
+            "where f.pessoa.pessoaId = :pessoaId")
+    Set<FotoEntity> findByPessoaId(Long pessoaId);
 
     @Query("select f.fpBucket from FotoEntity f " +
-            "where f.pessoa.pesId = :pesId")
-    Set<String> listaBuckets(Long pesId);
+            "where f.pessoa.pessoaId = :pessoaId")
+    Set<String> listaBuckets(Long pessoaId);
 }

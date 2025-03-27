@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class PessoaModel {
 
-    private Long pesId;
+    private Long pessoaId;
 
     private String pesNome;
 
@@ -16,18 +16,18 @@ public class PessoaModel {
 
     private Set<Long>enderecoIdList;
 
-    private String pesSexo;
+    private String pessoaSexo;
 
-    private String pesMae;
+    private String pessoaMae;
 
-    private String pesPai;
+    private String pessoaPai;
 
-    public Long getPesId() {
-        return pesId;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPesId(Long pesId) {
-        this.pesId = pesId;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public String getPesNome() {
@@ -46,28 +46,28 @@ public class PessoaModel {
         this.pesDataNascimento = pesDataNascimento;
     }
 
-    public String getPesSexo() {
-        return pesSexo;
+    public String getPessoaSexo() {
+        return pessoaSexo;
     }
 
-    public void setPesSexo(String pesSexo) {
-        this.pesSexo = pesSexo;
+    public void setPessoaSexo(String pessoaSexo) {
+        this.pessoaSexo = pessoaSexo;
     }
 
-    public String getPesMae() {
-        return pesMae;
+    public String getPessoaMae() {
+        return pessoaMae;
     }
 
-    public void setPesMae(String pesMae) {
-        this.pesMae = pesMae;
+    public void setPessoaMae(String pessoaMae) {
+        this.pessoaMae = pessoaMae;
     }
 
-    public String getPesPai() {
-        return pesPai;
+    public String getPessoaPai() {
+        return pessoaPai;
     }
 
-    public void setPesPai(String pesPai) {
-        this.pesPai = pesPai;
+    public void setPessoaPai(String pessoaPai) {
+        this.pessoaPai = pessoaPai;
     }
 
     public Set<EnderecoModel> getEnderecoList() {
@@ -90,33 +90,33 @@ public class PessoaModel {
 
     }
 
-    public PessoaModel(Long pesId, String pesNome, LocalDate pesDataNascimento, Set<EnderecoModel> enderecoList, String pesSexo, String pesMae, String pesPai) {
-        this.pesId = pesId;
+    public PessoaModel(Long pessoaId, String pesNome, LocalDate pesDataNascimento, Set<EnderecoModel> enderecoList, String pessoaSexo, String pessoaMae, String pessoaPai) {
+        this.pessoaId = pessoaId;
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
         this.enderecoList = enderecoList;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
     }
 
 
-    public PessoaModel(String pesNome, LocalDate pesDataNascimento, Set<Long> enderecoIdList, String pesSexo, String pesMae, String pesPai) {
+    public PessoaModel(String pesNome, LocalDate pesDataNascimento, Set<Long> enderecoIdList, String pessoaSexo, String pessoaMae, String pessoaPai) {
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
         this.enderecoIdList = enderecoIdList;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
     }
 
 
 
-    public PessoaModel(String pesNome, LocalDate pesDataNascimento, String pesSexo, String pesMae, String pesPai) {
+    public PessoaModel(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
         this.pesNome = pesNome;
         this.pesDataNascimento = pesDataNascimento;
-        this.pesSexo = pesSexo;
-        this.pesMae = pesMae;
-        this.pesPai = pesPai;
+        this.pessoaSexo = pessoaSexo;
+        this.pessoaMae = pessoaMae;
+        this.pessoaPai = pessoaPai;
     }
 }

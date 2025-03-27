@@ -7,18 +7,18 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public record PessoaResponse(
-        Long pesId,
+        Long pessoaId,
 
         String pesNome,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate pesDataNascimento,
 
-        String pesSexo,
+        String pessoaSexo,
 
-        String pesMae,
+        String pessoaMae,
 
-        String pesPai,
+        String pessoaPai,
 
         Set<EnderecoResponse> enderecoList
 ){

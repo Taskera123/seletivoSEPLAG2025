@@ -42,15 +42,15 @@ public class FotoPortImpl implements FotoPort {
 
             PessoaEntity pessoaEntityBD = pessoaRepository
                     .findById(fotoModelList.get(0)
-                            .getPesId()).orElseThrow(()->new NotFoundException("Pessoa não encontrada"));
+                            .getPessoaId()).orElseThrow(()->new NotFoundException("Pessoa não encontrada"));
 
             fotoModelList.forEach((f)->{
-                FotoEntity fotoEntity =  new FotoEntity(LocalDate.now(),f.getPesId()+"/"+f.getFoto().name(),f.getFoto().checksum());
+                FotoEntity fotoEntity =  new FotoEntity(LocalDate.now(),f.getPessoaId()+"/"+f.getFoto().name(),f.getFoto().checksum());
                 fotoEntity.setPessoa(pessoaEntityBD);
                 fotoRepository.saveAndFlush(fotoEntity);
                 storageService.store(fotoEntity.getFpBucket(),f.getFoto());
                 String linkFoto = storageService.generateTemporaryLink(fotoEntity.getFpBucket());
-                FotoModel fotoModelNovo = new FotoModel(f.getPesId(),linkFoto);
+                FotoModel fotoModelNovo = new FotoModel(f.getPessoaId(),linkFoto);
                 fotoModelListaNova.add(fotoModelNovo);
 
             });

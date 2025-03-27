@@ -15,7 +15,7 @@ public class UnidadeEnderecoId {
     public UnidadeEnderecoId() {
     }
 
-    public UnidadeEnderecoId(Long unidId, Long endId) {
+    public UnidadeEnderecoId(Long unidadeId, Long enderecoId) {
     }
 
     public Long getUnidade() {

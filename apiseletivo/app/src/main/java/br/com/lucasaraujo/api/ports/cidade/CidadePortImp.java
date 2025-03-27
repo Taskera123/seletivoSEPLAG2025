@@ -33,21 +33,21 @@ public class CidadePortImp implements CidadePort {
     }
 
     @Override
-    public CidadeModel buscarPorId(Long cidId) {
+    public CidadeModel buscarPorId(Long cidadeId) {
 
         return cidadeMapper
-                .cidadeEntityToModel( cidadeRepository.findById(cidId)
+                .cidadeEntityToModel( cidadeRepository.findById(cidadeId)
                         .orElseThrow(() -> new NotFoundException("Cidade não encontrada")));
     }
 
     @Transactional
     @Override
     public CidadeModel criar(CidadeModel cidadeModel) {
-        if(cidadeModel.getCidUf().length() !=2){
+        if(cidadeModel.getCidadeUf().length() !=2){
             throw new RuntimeException("UF deve ter dois caracteres");
         }
 
-        if(cidadeModel.getCidNome().isBlank() || cidadeModel.getCidNome().length() >200){
+        if(cidadeModel.getCidadeNome().isBlank() || cidadeModel.getCidadeNome().length() >200){
             throw new RuntimeException("Nome da cidade não pode ser vazio e deve ter no máximo 200 caracteres");
         }
         return cidadeMapper.cidadeEntityToModel(
@@ -58,20 +58,20 @@ public class CidadePortImp implements CidadePort {
     }
 
     @Override
-    public CidadeModel atualizar(Long cidId, CidadeModel cidadeModel) {
+    public CidadeModel atualizar(Long cidadeId, CidadeModel cidadeModel) {
 
-        if(cidadeModel.getCidUf().length() !=2){
+        if(cidadeModel.getCidadeUf().length() !=2){
             throw new RuntimeException("UF deve ter dois caracteres");
         }
 
-        if(cidadeModel.getCidNome().isBlank() || cidadeModel.getCidNome().length() >200){
+        if(cidadeModel.getCidadeNome().isBlank() || cidadeModel.getCidadeNome().length() >200){
             throw new RuntimeException("Nome da cidade não pode ser vazio e deve ter no máximo 200 caracteres");
         }
 
-        CidadeModel cidadeModelBanco = buscarPorId(cidId);
+        CidadeModel cidadeModelBanco = buscarPorId(cidadeId);
 
-        cidadeModelBanco.setCidNome(cidadeModel.getCidNome());
-        cidadeModelBanco.setCidUf(cidadeModel.getCidUf());
+        cidadeModelBanco.setCidadeNome(cidadeModel.getCidadeNome());
+        cidadeModelBanco.setCidadeUf(cidadeModel.getCidadeUf());
 
         return cidadeMapper.cidadeEntityToModel(
                 cidadeRepository.save(
@@ -98,9 +98,9 @@ public class CidadePortImp implements CidadePort {
     }
 
     @Override
-    public void excluir(Long cidId) {
-        CidadeModel cidadeModelBanco = buscarPorId(cidId);
-        List<EnderecoEntity> enderecoEntityList = enderecoRepository.findByCidadeCidId(cidId);
+    public void excluir(Long cidadeId) {
+        CidadeModel cidadeModelBanco = buscarPorId(cidadeId);
+        List<EnderecoEntity> enderecoEntityList = enderecoRepository.findByCidadeCidadeId(cidadeId);
         if(!enderecoEntityList.isEmpty()){
             throw new RuntimeException("Não foi possível excluir a cidade pois a mesma está ligada a um ou mais enderecos");
         }

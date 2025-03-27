@@ -7,11 +7,11 @@ import br.com.lucasaraujo.model.ServidorTemporarioModel;
 public interface ServidorTemporarioPort {
     ServidorTemporarioModel criar(ServidorTemporarioModel servidorTemporarioModel);
 
-    ServidorTemporarioModel buscarPorId(Long pesId);
+    ServidorTemporarioModel buscarPorId(Long pessoaId);
 
-    ServidorTemporarioModel atualizar(Long pesId, ServidorTemporarioModel servidorTemporarioModel);
+    ServidorTemporarioModel atualizar(Long pessoaId, ServidorTemporarioModel servidorTemporarioModel);
 
     PageResponse<ServidorTemporarioModel> listaServidoresTemporariosPaginado(PageQuery pageQuery);
 
-    void excluir(Long pesId);
+    void excluir(Long pessoaId);
 }

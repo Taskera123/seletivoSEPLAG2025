@@ -13,8 +13,8 @@ public class EnderecoUseStory {
         this.enderecoPort = enderecoPort;
     }
 
-    public EnderecoModel buscarPorId(Long endId){
-        return enderecoPort.buscarPorId(endId);
+    public EnderecoModel buscarPorId(Long enderecoId){
+        return enderecoPort.buscarPorId(enderecoId);
     }
 
     public PageResponse<EnderecoModel> listaEnderecosPaginado(PageQuery pageQuery){
@@ -25,12 +25,12 @@ public class EnderecoUseStory {
         return enderecoPort.criar(EnderecoModel);
     }
 
-    public EnderecoModel atualizar(Long endId,EnderecoModel EnderecoModel){
-        return enderecoPort.atualizar(endId,EnderecoModel);
+    public EnderecoModel atualizar(Long enderecoId,EnderecoModel EnderecoModel){
+        return enderecoPort.atualizar(enderecoId,EnderecoModel);
     }
 
-    public void excluir(Long endId){
-        enderecoPort.excluir(endId);
+    public void excluir(Long enderecoId){
+        enderecoPort.excluir(enderecoId);
     }
 
     public PageResponse<EnderecoModel> buscarEnderecoFuncional(String nome, PageQuery pageQuery) {

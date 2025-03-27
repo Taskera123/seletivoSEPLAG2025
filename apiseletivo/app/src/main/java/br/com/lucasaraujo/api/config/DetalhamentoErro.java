@@ -2,7 +2,7 @@ package br.com.lucasaraujo.api.config;
 
 import org.springframework.http.HttpStatus;
 
-public class DetalhesErro {
+public class DetalhamentoErro {
     private Integer statusCode;
 
     private String statusMessage;
@@ -44,10 +44,10 @@ public class DetalhesErro {
     }
     public static class Builder {
 
-        private DetalhesErro erro;
+        private DetalhamentoErro erro;
 
         Builder() {
-            this.erro = new DetalhesErro();
+            this.erro = new DetalhamentoErro();
         }
 
         public Builder addStatus(HttpStatus status) {
@@ -76,7 +76,7 @@ public class DetalhesErro {
             return this;
         }
 
-        public DetalhesErro build() {
+        public DetalhamentoErro build() {
             return this.erro;
         }
     }

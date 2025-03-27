@@ -13,8 +13,8 @@ public class LotacaoUseStory {
         this.lotacaoPort = lotacaoPort;
     }
 
-    public LotacaoModel buscarPorId(Long lotId){
-        return lotacaoPort.buscarPorId(lotId);
+    public LotacaoModel buscarPorId(Long lotacaoId){
+        return lotacaoPort.buscarPorId(lotacaoId);
     }
 
     public PageResponse<LotacaoModel> listaLotacoesPaginado(PageQuery pageQuery){
@@ -25,11 +25,11 @@ public class LotacaoUseStory {
         return lotacaoPort.criar(lotacaoModel);
     }
 
-    public LotacaoModel atualizar(Long lotId,LotacaoModel lotacaoModel){
-        return lotacaoPort.atualizar(lotId,lotacaoModel);
+    public LotacaoModel atualizar(Long lotacaoId,LotacaoModel lotacaoModel){
+        return lotacaoPort.atualizar(lotacaoId,lotacaoModel);
     }
 
-    public void excluir(Long lotId){
-         lotacaoPort.excluir(lotId);
+    public void excluir(Long lotacaoId){
+         lotacaoPort.excluir(lotacaoId);
     }
 }

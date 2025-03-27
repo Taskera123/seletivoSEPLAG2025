@@ -14,12 +14,12 @@ import java.util.List;
 @Repository
 public interface EnderecoRepository extends JpaRepository<EnderecoEntity,Long> {
 
-    List<EnderecoEntity> findByCidadeCidId(Long cidId);
+    List<EnderecoEntity> findByCidadeCidadeId(Long cidadeId);
 
     @Query("select e from EnderecoEntity e " +
-            "inner join UnidadeEnderecoEntity ue on ue.endereco.endId = e.endId " +
-            "inner join LotacaoEntity l on l.unidade.unidId = ue.unidade.unidId " +
-            "inner join PessoaEntity p on pesId = l.pessoa.pesId "+
+            "inner join UnidadeEnderecoEntity ue on ue.endereco.enderecoId = e.enderecoId " +
+            "inner join LotacaoEntity l on l.unidade.unidadeId = ue.unidade.unidadeId " +
+            "inner join PessoaEntity p on pessoaId = l.pessoa.pessoaId "+
             "where lower(p.pesNome) like lower(CONCAT('%', :nome, '%'))"
 
     )

@@ -13,8 +13,8 @@ public class UnidadeUseStory {
         this.unidadePort = unidadePort;
     }
 
-    public UnidadeModel buscarPorId(Long unidId){
-        return unidadePort.buscarPorId(unidId);
+    public UnidadeModel buscarPorId(Long unidadeId){
+        return unidadePort.buscarPorId(unidadeId);
     }
 
     public PageResponse<UnidadeModel> listaUnidadesPaginado(PageQuery pageQuery){
@@ -25,11 +25,11 @@ public class UnidadeUseStory {
         return unidadePort.criar(unidadeModel);
     }
 
-    public UnidadeModel atualizar(Long unidId,UnidadeModel unidadeModel){
-        return unidadePort.atualizar(unidId,unidadeModel);
+    public UnidadeModel atualizar(Long unidadeId,UnidadeModel unidadeModel){
+        return unidadePort.atualizar(unidadeId,unidadeModel);
     }
 
-    public void excluir(Long unidId){
-         unidadePort.excluir(unidId);
+    public void excluir(Long unidadeId){
+         unidadePort.excluir(unidadeId);
     }
 }

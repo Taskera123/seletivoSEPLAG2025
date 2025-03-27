@@ -13,8 +13,8 @@ public class ServidorTemporarioUseStory {
         this.servidorTemporarioPort = servidorTemporarioPort;
     }
 
-    public ServidorTemporarioModel buscarPorId(Long pesId){
-        return servidorTemporarioPort.buscarPorId(pesId);
+    public ServidorTemporarioModel buscarPorId(Long pessoaId){
+        return servidorTemporarioPort.buscarPorId(pessoaId);
     }
 
    public PageResponse<ServidorTemporarioModel> listaServidoresTemporariosPaginado(PageQuery pageQuery){
@@ -25,11 +25,11 @@ public class ServidorTemporarioUseStory {
         return servidorTemporarioPort.criar(servidorTemporarioModel);
     }
 
-    public ServidorTemporarioModel atualizar(Long pesId,ServidorTemporarioModel servidorTemporarioModel){
-        return servidorTemporarioPort.atualizar(pesId,servidorTemporarioModel);
+    public ServidorTemporarioModel atualizar(Long pessoaId,ServidorTemporarioModel servidorTemporarioModel){
+        return servidorTemporarioPort.atualizar(pessoaId,servidorTemporarioModel);
     }
 
-    public void excluir(Long pesId){
-         servidorTemporarioPort.excluir(pesId);
+    public void excluir(Long pessoaId){
+         servidorTemporarioPort.excluir(pessoaId);
     }
 }

@@ -47,11 +47,11 @@ public class CidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{cidId}")
-    public CidadeResponse atualizarCidade(@PathVariable Long cidId,
+    @PutMapping("/{cidadeId}")
+    public CidadeResponse atualizarCidade(@PathVariable Long cidadeId,
                                           @RequestBody CidadeRequest cidadeRequest) {
         return cidadeMapper.cidadeModelToResponse(cidadeUseStory
-                .atualizar(cidId,cidadeMapper.cidadeRequestToModel(cidadeRequest)));
+                .atualizar(cidadeId,cidadeMapper.cidadeRequestToModel(cidadeRequest)));
     }
 
     @Operation(summary = "Excluir uma cidade pelo Id")
@@ -61,9 +61,9 @@ public class CidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{cidId}")
-    public ResponseEntity<String> excluir(@PathVariable Long cidId) {
-        cidadeUseStory.excluir(cidId);
+    @DeleteMapping("/{cidadeId}")
+    public ResponseEntity<String> excluir(@PathVariable Long cidadeId) {
+        cidadeUseStory.excluir(cidadeId);
         return ResponseEntity.ok("Cidade excluida com sucesso");
     }
 
@@ -74,10 +74,10 @@ public class CidadeController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/{cidId}")
-    public CidadeResponse buscarCidadePorId(@PathVariable Long cidId) {
+    @GetMapping("/{cidadeId}")
+    public CidadeResponse buscarCidadePorId(@PathVariable Long cidadeId) {
         return cidadeMapper.cidadeModelToResponse(cidadeUseStory
-                .buscarPorId(cidId));
+                .buscarPorId(cidadeId));
     }
 
     @Operation(summary = "Listar cidades de forma paginado")

@@ -8,11 +8,11 @@ public interface UnidadePort {
 
     UnidadeModel criar(UnidadeModel unidadeModel);
 
-    UnidadeModel buscarPorId(Long unidId);
+    UnidadeModel buscarPorId(Long unidadeId);
 
-    UnidadeModel atualizar(Long unidId, UnidadeModel unidadeModel);
+    UnidadeModel atualizar(Long unidadeId, UnidadeModel unidadeModel);
 
     PageResponse<UnidadeModel> listaUnidadesPaginado(PageQuery pageQuery);
 
-    void excluir(Long unidId);
+    void excluir(Long unidadeId);
 }

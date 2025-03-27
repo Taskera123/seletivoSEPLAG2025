@@ -11,15 +11,15 @@ import java.util.Set;
 @Repository
 public interface PessoaEnderecoRepository extends JpaRepository<PessoaEnderecoEntity, PessoaEnderecoId> {
 
-    @Query("select pe.endereco from PessoaEnderecoEntity pe where pe.pesEndId.pessoa = :pesId")
-    Set<EnderecoEntity> listaEnderecosPessoa(Long pesId);
+    @Query("select pe.endereco from PessoaEnderecoEntity pe where pe.pesEnderecoId.pessoa = :pessoaId")
+    Set<EnderecoEntity> listaEnderecosPessoa(Long pessoaId);
 
     @Query("select pe from PessoaEnderecoEntity pe " +
-            "where pe.pesEndId.pessoa = :pesId " +
-            "and pe.pesEndId.endereco = :endId")
-    Optional<PessoaEnderecoEntity> findByPessoaAndEndereco(Long pesId, Long endId);
+            "where pe.pesEnderecoId.pessoa = :pessoaId " +
+            "and pe.pesEnderecoId.endereco = :enderecoId")
+    Optional<PessoaEnderecoEntity> findByPessoaAndEndereco(Long pessoaId, Long enderecoId);
 
     @Query("select pe from PessoaEnderecoEntity pe " +
-            "where pe.pesEndId.pessoa = :pesId")
-    Set<PessoaEnderecoEntity> findByPessoaId(Long pesId);
+            "where pe.pesEnderecoId.pessoa = :pessoaId")
+    Set<PessoaEnderecoEntity> findByPessoaId(Long pessoaId);
 }

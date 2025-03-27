@@ -4,13 +4,13 @@ import br.com.lucasaraujo.dto.cidade.CidadeCompletoRequest;
 
 public record EnderecoRequest(
 
-        String endTipoLogradouro,
+        String enderecoTipoLogradouro,
 
-        String endLogradouro,
+        String enderecoLogradouro,
 
-        Integer endNumero,
+        Integer enderecoNumero,
 
-        String endBairro,
+        String enderecoBairro,
 
         CidadeCompletoRequest cidadeCompletoRequest
 ) {

@@ -48,11 +48,11 @@ public class EnderecoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{endId}")
-    public EnderecoResponse atualizarEndereco(@PathVariable Long endId,
+    @PutMapping("/{enderecoId}")
+    public EnderecoResponse atualizarEndereco(@PathVariable Long enderecoId,
                                           @RequestBody EnderecoRequest enderecoRequest) {
         return enderecoMapper.enderecoModelToResponse(enderecoUseStory
-                .atualizar(endId,enderecoMapper.enderecoRequestToModel(enderecoRequest)));
+                .atualizar(enderecoId,enderecoMapper.enderecoRequestToModel(enderecoRequest)));
     }
 
     @Operation(summary = "Excluir um endereco pelo Id")
@@ -62,9 +62,9 @@ public class EnderecoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{endId}")
-    public ResponseEntity<String> excluir(@PathVariable Long endId) {
-        enderecoUseStory.excluir(endId);
+    @DeleteMapping("/{enderecoId}")
+    public ResponseEntity<String> excluir(@PathVariable Long enderecoId) {
+        enderecoUseStory.excluir(enderecoId);
         return ResponseEntity.ok("Enedereco excluido com sucesso");
     }
 
@@ -75,10 +75,10 @@ public class EnderecoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/{endId}")
-    public EnderecoResponse buscarEnderecpPorId(@PathVariable Long endId) {
+    @GetMapping("/{enderecoId}")
+    public EnderecoResponse buscarEnderecpPorId(@PathVariable Long enderecoId) {
         return enderecoMapper.enderecoModelToResponse(enderecoUseStory
-                .buscarPorId(endId));
+                .buscarPorId(enderecoId));
     }
 
     @Operation(summary = "Listar enderecos de forma paginado")

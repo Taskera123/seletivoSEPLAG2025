@@ -4,15 +4,15 @@ import br.com.lucasaraujo.dto.cidade.CidadeResponse;
 
 public record EnderecoResponse(
 
-         Long endId,
+         Long enderecoId,
         
-         String endTipoLogradouro,
+         String enderecoTipoLogradouro,
 
-         String endLogradouro,
+         String enderecoLogradouro,
 
-         Integer endNumero,
+         Integer enderecoNumero,
 
-         String endBairro,
+         String enderecoBairro,
 
          CidadeResponse cidadeResponse
 ) {

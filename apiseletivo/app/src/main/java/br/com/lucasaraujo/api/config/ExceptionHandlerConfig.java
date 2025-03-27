@@ -22,7 +22,7 @@ public class ExceptionHandlerConfig extends ResponseEntityExceptionHandler {
 
         String mensagemDesenvolvedor = tratarMsgDesenvolvedor(ex);
 
-        List<DetalhesErro> erros = Arrays.asList(DetalhesErro.builder().addMsgUsuario(mensagemUsuario)
+        List<DetalhamentoErro> erros = Arrays.asList(DetalhamentoErro.builder().addMsgUsuario(mensagemUsuario)
                 .addMsgDesenvolvedor(mensagemDesenvolvedor).addStatus(HttpStatus.BAD_REQUEST)
                 .addHttpMethod(getHttpMethod(request)).addPath(getPath(request)).build());
 
@@ -36,7 +36,7 @@ public class ExceptionHandlerConfig extends ResponseEntityExceptionHandler {
 
         String mensagemDesenvolvedor = tratarMsgDesenvolvedor(ex);
 
-        List<DetalhesErro> erros = Arrays.asList(DetalhesErro.builder().addMsgUsuario(mensagemUsuario)
+        List<DetalhamentoErro> erros = Arrays.asList(DetalhamentoErro.builder().addMsgUsuario(mensagemUsuario)
                 .addMsgDesenvolvedor(mensagemDesenvolvedor).addStatus(HttpStatus.BAD_REQUEST)
                 .addHttpMethod(getHttpMethod(request)).addPath(getPath(request)).build());
 

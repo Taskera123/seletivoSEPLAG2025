@@ -79,12 +79,12 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{pesId}")
-    public ServidorEfetivoResponse atualizarServidorEfetivo(@PathVariable Long pesId,
+    @PutMapping("/{pessoaId}")
+    public ServidorEfetivoResponse atualizarServidorEfetivo(@PathVariable Long pessoaId,
                                                             @RequestBody ServidorEfetivoRequest servidorEfetivoRequest)
     {
         return servidorEfetivoMapper.servidorEfetivoModelToResponse(servidorEfetivoUseStory
-                .atualizar(pesId,servidorEfetivoMapper.servidorEfetivoRequestToModel(servidorEfetivoRequest)));
+                .atualizar(pessoaId,servidorEfetivoMapper.servidorEfetivoRequestToModel(servidorEfetivoRequest)));
     }
 
     @Operation(summary = "Fazer upload de fotos de um servidor efetivo")
@@ -94,13 +94,13 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PostMapping(value = "/upload-fotos/{pesId}",
+    @PostMapping(value = "/upload-fotos/{pessoaId}",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
 
     public List<FotoResponse> uploadFotos(
-            @PathVariable Long pesId,
+            @PathVariable Long pessoaId,
             @RequestParam(name = "fotos", required = false) List<MultipartFile> fotos
     ){
         List<Resource> listaResource = fotos.stream().map(this::resourceOf).toList();
@@ -108,7 +108,7 @@ public class ServidorEfetivoController {
         List<FotoRequest>listaFotoRequest =new ArrayList<FotoRequest>();
 
         listaResource.forEach((f)->{
-            FotoRequest fotoRequest = new FotoRequest(pesId,f);
+            FotoRequest fotoRequest = new FotoRequest(pessoaId,f);
             listaFotoRequest.add(fotoRequest);
         });
 
@@ -125,9 +125,9 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{pesId}")
-    public ResponseEntity<String> excluir(@PathVariable Long pesId) {
-        servidorEfetivoUseStory.excluir(pesId);
+    @DeleteMapping("/{pessoaId}")
+    public ResponseEntity<String> excluir(@PathVariable Long pessoaId) {
+        servidorEfetivoUseStory.excluir(pessoaId);
         return ResponseEntity.ok("Servidor Efetivo excluido com sucesso");
     }
 
@@ -139,10 +139,10 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
 
-    @GetMapping("/{pesId}")
-    public ServidorEfetivoResponse buscarServidorEfetivoPorId(@PathVariable Long pesId) {
+    @GetMapping("/{pessoaId}")
+    public ServidorEfetivoResponse buscarServidorEfetivoPorId(@PathVariable Long pessoaId) {
         return servidorEfetivoMapper.servidorEfetivoModelToResponse(servidorEfetivoUseStory
-                .buscarPorId(pesId));
+                .buscarPorId(pessoaId));
     }
 
     @Operation(summary = "Listar servidores efetivos de forma paginado")
@@ -186,13 +186,13 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/lotados-unidade/{unidId}")
-    public PageResponse<ServidorEfetivoLotacaoResponse> servidoresLotadosUnidade(@PathVariable Long unidId,
+    @GetMapping("/lotados-unidade/{unidadeId}")
+    public PageResponse<ServidorEfetivoLotacaoResponse> servidoresLotadosUnidade(@PathVariable Long unidadeId,
                                                                                  @RequestParam(defaultValue = "0") int page,
                                                                                  @RequestParam(defaultValue = "10") int sizePage) {
         PageQuery pageQuery = new PageQuery(page, sizePage);
         PageResponse<ServidorEfetivoModel> paginado = servidorEfetivoUseStory
-                .buscarServidoreLotadosUnidade(unidId,pageQuery);
+                .buscarServidoreLotadosUnidade(unidadeId,pageQuery);
 
         return paginado.map(servidorEfetivoMapper::servidorEfetivLotacaoModelToResponse);
     }

@@ -2,47 +2,47 @@ package br.com.lucasaraujo.model;
 
 public class CidadeModel {
 
-    private Long cidId;
+    private Long cidadeId;
 
-    private String cidNome;
+    private String cidadeNome;
 
-    private String cidUf;
+    private String cidadeUf;
 
-    public Long getCidId() {
-        return cidId;
+    public Long getCidadeId() {
+        return cidadeId;
     }
 
-    public void setCidId(Long cidId) {
-        this.cidId = cidId;
+    public void setCidadeId(Long cidadeId) {
+        this.cidadeId = cidadeId;
     }
 
-    public String getCidNome() {
-        return cidNome;
+    public String getCidadeNome() {
+        return cidadeNome;
     }
 
-    public void setCidNome(String cidNome) {
-        this.cidNome = cidNome;
+    public void setCidadeNome(String cidadeNome) {
+        this.cidadeNome = cidadeNome;
     }
 
-    public String getCidUf() {
-        return cidUf;
+    public String getCidadeUf() {
+        return cidadeUf;
     }
 
-    public void setCidUf(String cidUf) {
-        this.cidUf = cidUf;
+    public void setCidadeUf(String cidadeUf) {
+        this.cidadeUf = cidadeUf;
     }
 
     public CidadeModel() {
     }
 
-    public CidadeModel(Long cidId, String cidNome, String cidUf) {
-        this.cidId = cidId;
-        this.cidNome = cidNome;
-        this.cidUf = cidUf;
+    public CidadeModel(Long cidadeId, String cidadeNome, String cidadeUf) {
+        this.cidadeId = cidadeId;
+        this.cidadeNome = cidadeNome;
+        this.cidadeUf = cidadeUf;
     }
 
-    public CidadeModel(String cidNome, String cidUf) {
-        this.cidNome = cidNome;
-        this.cidUf = cidUf;
+    public CidadeModel(String cidadeNome, String cidadeUf) {
+        this.cidadeNome = cidadeNome;
+        this.cidadeUf = cidadeUf;
     }
 }

@@ -2,56 +2,56 @@ package br.com.lucasaraujo.model;
 
 public class EnderecoModel {
 
-    private Long endId;
+    private Long enderecoId;
 
-    private String endTipoLogradouro;
+    private String enderecoTipoLogradouro;
 
-    private String endLogradouro;
+    private String enderecoLogradouro;
 
-    private Integer endNumero;
+    private Integer enderecoNumero;
 
-    private String endBairro;
+    private String enderecoBairro;
 
     private CidadeModel cidade;
 
-    public Long getEndId() {
-        return endId;
+    public Long getEnderecoId() {
+        return enderecoId;
     }
 
-    public void setEndId(Long endId) {
-        this.endId = endId;
+    public void setEnderecoId(Long enderecoId) {
+        this.enderecoId = enderecoId;
     }
 
-    public String getEndTipoLogradouro() {
-        return endTipoLogradouro;
+    public String getEnderecoTipoLogradouro() {
+        return enderecoTipoLogradouro;
     }
 
-    public void setEndTipoLogradouro(String endTipoLogradouro) {
-        this.endTipoLogradouro = endTipoLogradouro;
+    public void setEnderecoTipoLogradouro(String enderecoTipoLogradouro) {
+        this.enderecoTipoLogradouro = enderecoTipoLogradouro;
     }
 
-    public String getEndLogradouro() {
-        return endLogradouro;
+    public String getEnderecoLogradouro() {
+        return enderecoLogradouro;
     }
 
-    public void setEndLogradouro(String endLogradouro) {
-        this.endLogradouro = endLogradouro;
+    public void setEnderecoLogradouro(String enderecoLogradouro) {
+        this.enderecoLogradouro = enderecoLogradouro;
     }
 
-    public Integer getEndNumero() {
-        return endNumero;
+    public Integer getEnderecoNumero() {
+        return enderecoNumero;
     }
 
-    public void setEndNumero(Integer endNumero) {
-        this.endNumero = endNumero;
+    public void setEnderecoNumero(Integer enderecoNumero) {
+        this.enderecoNumero = enderecoNumero;
     }
 
-    public String getEndBairro() {
-        return endBairro;
+    public String getEnderecoBairro() {
+        return enderecoBairro;
     }
 
-    public void setEndBairro(String endBairro) {
-        this.endBairro = endBairro;
+    public void setEnderecoBairro(String enderecoBairro) {
+        this.enderecoBairro = enderecoBairro;
     }
 
     public CidadeModel getCidade() {
@@ -65,35 +65,35 @@ public class EnderecoModel {
     public EnderecoModel() {
     }
 
-    public EnderecoModel(Long endId, String endTipoLogradouro, String endLogradouro, Integer endNumero, String endBairro, CidadeModel cidade) {
-        this.endId = endId;
-        this.endTipoLogradouro = endTipoLogradouro;
-        this.endLogradouro = endLogradouro;
-        this.endNumero = endNumero;
-        this.endBairro = endBairro;
+    public EnderecoModel(Long enderecoId, String enderecoTipoLogradouro, String enderecoLogradouro, Integer enderecoNumero, String enderecoBairro, CidadeModel cidade) {
+        this.enderecoId = enderecoId;
+        this.enderecoTipoLogradouro = enderecoTipoLogradouro;
+        this.enderecoLogradouro = enderecoLogradouro;
+        this.enderecoNumero = enderecoNumero;
+        this.enderecoBairro = enderecoBairro;
         this.cidade = cidade;
     }
 
-    public EnderecoModel(String endTipoLogradouro, String endLogradouro, Integer endNumero, String endBairro, CidadeModel cidade) {
-        this.endTipoLogradouro = endTipoLogradouro;
-        this.endLogradouro = endLogradouro;
-        this.endNumero = endNumero;
-        this.endBairro = endBairro;
+    public EnderecoModel(String enderecoTipoLogradouro, String enderecoLogradouro, Integer enderecoNumero, String enderecoBairro, CidadeModel cidade) {
+        this.enderecoTipoLogradouro = enderecoTipoLogradouro;
+        this.enderecoLogradouro = enderecoLogradouro;
+        this.enderecoNumero = enderecoNumero;
+        this.enderecoBairro = enderecoBairro;
         this.cidade = cidade;
     }
 
-    public EnderecoModel(Long endId, String endTipoLogradouro, String endLogradouro, Integer endNumero, String endBairro) {
-        this.endId = endId;
-        this.endTipoLogradouro = endTipoLogradouro;
-        this.endLogradouro = endLogradouro;
-        this.endNumero = endNumero;
-        this.endBairro = endBairro;
+    public EnderecoModel(Long enderecoId, String enderecoTipoLogradouro, String enderecoLogradouro, Integer enderecoNumero, String enderecoBairro) {
+        this.enderecoId = enderecoId;
+        this.enderecoTipoLogradouro = enderecoTipoLogradouro;
+        this.enderecoLogradouro = enderecoLogradouro;
+        this.enderecoNumero = enderecoNumero;
+        this.enderecoBairro = enderecoBairro;
     }
 
-    public EnderecoModel(String endTipoLogradouro, String endLogradouro, Integer endNumero, String endBairro) {
-        this.endTipoLogradouro = endTipoLogradouro;
-        this.endLogradouro = endLogradouro;
-        this.endNumero = endNumero;
-        this.endBairro = endBairro;
+    public EnderecoModel(String enderecoTipoLogradouro, String enderecoLogradouro, Integer enderecoNumero, String enderecoBairro) {
+        this.enderecoTipoLogradouro = enderecoTipoLogradouro;
+        this.enderecoLogradouro = enderecoLogradouro;
+        this.enderecoNumero = enderecoNumero;
+        this.enderecoBairro = enderecoBairro;
     }
 }

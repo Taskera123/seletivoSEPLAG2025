@@ -48,11 +48,11 @@ public class LotacaoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PutMapping("/{lotId}")
-    public LotacaoResponse atualizarLotacao(@PathVariable Long lotId,
+    @PutMapping("/{lotacaoId}")
+    public LotacaoResponse atualizarLotacao(@PathVariable Long lotacaoId,
                                           @RequestBody LotacaoRequest lotacaoRequest) {
         return lotacaoMapper.lotacaoModelToResponse(lotacaoUseStory
-                .atualizar(lotId,lotacaoMapper.lotacaoRequestToModel(lotacaoRequest)));
+                .atualizar(lotacaoId,lotacaoMapper.lotacaoRequestToModel(lotacaoRequest)));
     }
 
     @Operation(summary = "Excluir uma lotação pelo Id")
@@ -62,9 +62,9 @@ public class LotacaoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @DeleteMapping("/{lotId}")
-    public ResponseEntity<String> excluir(@PathVariable Long lotId) {
-        lotacaoUseStory.excluir(lotId);
+    @DeleteMapping("/{lotacaoId}")
+    public ResponseEntity<String> excluir(@PathVariable Long lotacaoId) {
+        lotacaoUseStory.excluir(lotacaoId);
         return ResponseEntity.ok("Lotacao excluida com sucesso");
     }
 
@@ -75,9 +75,9 @@ public class LotacaoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    public LotacaoResponse buscarLotacaoPorId(@PathVariable Long lotId) {
+    public LotacaoResponse buscarLotacaoPorId(@PathVariable Long lotacaoId) {
         return lotacaoMapper.lotacaoModelToResponse(lotacaoUseStory
-                .buscarPorId(lotId));
+                .buscarPorId(lotacaoId));
     }
 
     @Operation(summary = "Listar lotações de forma paginado")

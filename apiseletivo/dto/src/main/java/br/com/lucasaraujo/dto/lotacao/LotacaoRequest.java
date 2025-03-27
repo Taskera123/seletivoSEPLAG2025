@@ -7,16 +7,16 @@ import java.time.LocalDate;
 public record LotacaoRequest(
 
          @JsonFormat(pattern = "dd/MM/yyyy")
-         LocalDate lotDataLotacao,
+         LocalDate lotacaoDataLotacao,
 
          @JsonFormat(pattern = "dd/MM/yyyy")
-         LocalDate lotDataRemocao,
+         LocalDate lotacaoDataRemocao,
 
-         String lotPortaria,
+         String lotacaoPortaria,
 
-         Long pesId,
+         Long pessoaId,
 
-         Long unidId
+         Long unidadeId
          ) {
     
 }
