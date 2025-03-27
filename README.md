@@ -71,9 +71,9 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 
 - **POST** `/cidade/`: Cria uma nova cidade *(já existem 5 cidades inseridas no start da aplicação)*.
 - **GET** `/cidade/paginado/all`: Lista todas as cidades paginadas.
-- **GET** `/cidade/{cidId}`: Busca uma cidade específica.
-- **PUT** `/cidade/{cidId}`: Atualiza uma cidade.
-- **DELETE** `/cidade/{cidId}`: Exclui uma cidade.
+- **GET** `/cidade/{cidadeId}`: Busca uma cidade específica.
+- **PUT** `/cidade/{cidadeId}`: Atualiza uma cidade.
+- **DELETE** `/cidade/{cidadeId}`: Exclui uma cidade.
 
 ---
 
@@ -82,10 +82,10 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 - **POST** `/endereco/`: Cria um novo endereço.
   - Pode criar/editar cidade junto. Se `id` for passado, cidade é atualizada, caso contrário, uma nova cidade é criada.
 - **GET** `/endereco/paginado/all`: Lista todos os endereços paginados.
-- **GET** `/endereco/{endId}`: Busca um endereço específico.
-- **PUT** `/endereco/{endId}`: Atualiza um endereço.
+- **GET** `/endereco/{enderecoId}`: Busca um endereço específico.
+- **PUT** `/endereco/{enderecoId}`: Atualiza um endereço.
   - Também permite criação/edição de cidade como na criação.
-- **DELETE** `/endereco/{endId}`: Exclui um endereço.
+- **DELETE** `/endereco/{enderecoId}`: Exclui um endereço.
 
 ---
 
@@ -93,9 +93,9 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 
 - **POST** `/unidade/`: Cria uma nova unidade.
 - **GET** `/unidade/paginado/all`: Lista todas as unidades paginadas.
-- **GET** `/unidade/{unidId}`: Busca uma unidade específica.
-- **PUT** `/unidade/{unidId}`: Atualiza uma unidade.
-- **DELETE** `/unidade/{unidId}`: Exclui uma unidade.
+- **GET** `/unidade/{unidadeId}`: Busca uma unidade específica.
+- **PUT** `/unidade/{unidadeId}`: Atualiza uma unidade.
+- **DELETE** `/unidade/{unidadeId}`: Exclui uma unidade.
 
 ---
 
@@ -105,12 +105,12 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
   - Necessário informar a pessoa completa.
   - Não é necessário informar lista completa de endereços, apenas os IDs.
 - **GET** `/servidor-efetivo/paginado/all`: Lista servidores efetivos paginados.
-- **GET** `/servidor-efetivo/{pesId}`: Busca servidor efetivo por ID.
-- **PUT** `/servidor-efetivo/{pesId}`: Atualiza servidor efetivo.
-- **POST** `/servidor-efetivo/upload-fotos/{pesId}`: Adiciona uma ou mais fotos ao servidor.
-- **DELETE** `/servidor-efetivo/{pesId}`: Exclui o servidor efetivo.
+- **GET** `/servidor-efetivo/{pessoaId}`: Busca servidor efetivo por ID.
+- **PUT** `/servidor-efetivo/{pessoaId}`: Atualiza servidor efetivo.
+- **POST** `/servidor-efetivo/upload-fotos/{pessoaId}`: Adiciona uma ou mais fotos ao servidor.
+- **DELETE** `/servidor-efetivo/{pessoaId}`: Exclui o servidor efetivo.
 - **GET** `/servidor-efetivo/endereco-funcional?nome=...`: Busca endereço funcional por parte do nome.
-- **GET** `/servidor-efetivo/lotados-unidade/{unidId}`: Lista servidores efetivos lotados em determinada unidade.
+- **GET** `/servidor-efetivo/lotados-unidade/{unidadeId}`: Lista servidores efetivos lotados em determinada unidade.
 
 ---
 
@@ -119,10 +119,10 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 - **POST** `/servidor-temporario/`: Cria um novo servidor temporário.
   - Semelhante ao servidor efetivo.
 - **GET** `/servidor-temporario/paginado/all`: Lista servidores temporários paginados.
-- **GET** `/servidor-temporario/{unidId}`: Busca servidor temporário por unidade.
-- **PUT** `/servidor-temporario/{pesId}`: Atualiza servidor temporário.
-- **POST** `/servidor-efetivo/upload-fotos/{pesId}`: (Sim, também funciona para temporários).
-- **DELETE** `/servidor-temporario/{pesId}`: Exclui o servidor temporário.
+- **GET** `/servidor-temporario/{unidadeId}`: Busca servidor temporário por unidade.
+- **PUT** `/servidor-temporario/{pessoaId}`: Atualiza servidor temporário.
+- **POST** `/servidor-efetivo/upload-fotos/{pessoaId}`: (Sim, também funciona para temporários).
+- **DELETE** `/servidor-temporario/{pessoaId}`: Exclui o servidor temporário.
 
 ---
 
@@ -131,6 +131,6 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 - **POST** `/lotacao/`: Cria uma nova lotação.
   - Basta passar os IDs da pessoa e unidade, não os objetos completos.
 - **GET** `/lotacao/paginado/all`: Lista todas as lotações paginadas.
-- **GET** `/lotacao/{unidId}`: Busca uma lotação específica.
-- **PUT** `/lotacao/{lotId}`: Atualiza uma lotação.
-- **DELETE** `/lotacao/{lotId}`: Exclui uma lotação.
+- **GET** `/lotacao/{unidadeId}`: Busca uma lotação específica.
+- **PUT** `/lotacao/{lotacaoId}`: Atualiza uma lotação.
+- **DELETE** `/lotacao/{lotacaoId}`: Exclui uma lotação.
