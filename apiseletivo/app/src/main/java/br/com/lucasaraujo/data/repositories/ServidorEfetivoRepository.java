@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ServidorEfetivoRepository extends JpaRepository<ServidorEfetivoEntity,Long> {
-    @Query("select new br.com.lucasaraujo.data.entities.vo.ServidoresUnidadeVo(se.pessoa.pesNome," +
-            " u.unidadeNome, se.pessoa.pesDataNascimento,se.pessoa.pessoaId) " +
+    @Query("select new br.com.lucasaraujo.data.entities.vo.ServidoresUnidadeVo(se.pessoa.pessoaNome," +
+            " u.unidadeNome, se.pessoa.pessoaDataNascimento,se.pessoa.pessoaId) " +
             "from ServidorEfetivoEntity se " +
             "inner join LotacaoEntity l on l.pessoa.pessoaId = se.pessoa.pessoaId " +
             "inner join l.unidade u on u.unidadeId = l.unidade.unidadeId " +

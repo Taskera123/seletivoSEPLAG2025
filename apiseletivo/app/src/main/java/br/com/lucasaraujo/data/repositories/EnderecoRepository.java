@@ -20,7 +20,7 @@ public interface EnderecoRepository extends JpaRepository<EnderecoEntity,Long> {
             "inner join UnidadeEnderecoEntity ue on ue.endereco.enderecoId = e.enderecoId " +
             "inner join LotacaoEntity l on l.unidade.unidadeId = ue.unidade.unidadeId " +
             "inner join PessoaEntity p on pessoaId = l.pessoa.pessoaId "+
-            "where lower(p.pesNome) like lower(CONCAT('%', :nome, '%'))"
+            "where lower(p.pessoaNome) like lower(CONCAT('%', :nome, '%'))"
 
     )
     Page<EnderecoEntity> listaEnderecosFuncPorParteNome(String nome,Pageable pageable);

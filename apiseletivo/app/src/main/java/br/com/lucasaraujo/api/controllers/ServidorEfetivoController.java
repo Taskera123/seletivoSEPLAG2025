@@ -31,7 +31,7 @@ import java.util.List;
 
 @RestController
 @Tag(name = "Servidores Efetivos")
-@RequestMapping("/servidor-efetivo")
+@RequestMapping("/servidorEfetivo")
 public class ServidorEfetivoController {
 
     private final ServidorEfetivoMapper servidorEfetivoMapper;
@@ -94,7 +94,7 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @PostMapping(value = "/upload-fotos/{pessoaId}",
+    @PostMapping(value = "/uploadFoto/{pessoaId}",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -186,7 +186,7 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/lotados-unidade/{unidadeId}")
+    @GetMapping("/lotacaoUnidade/{unidadeId}")
     public PageResponse<ServidorEfetivoLotacaoResponse> servidoresLotadosUnidade(@PathVariable Long unidadeId,
                                                                                  @RequestParam(defaultValue = "0") int page,
                                                                                  @RequestParam(defaultValue = "10") int sizePage) {
@@ -204,7 +204,7 @@ public class ServidorEfetivoController {
             @ApiResponse(responseCode  = "403", description  = "Requisição não autorizada"),
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
-    @GetMapping("/endereco-funcional")
+    @GetMapping("/enderecoFuncional")
     public PageResponse<EnderecoResponse> enderecoFuncional(@RequestParam String nome,
                                                             @RequestParam(defaultValue = "0") int page,
                                                             @RequestParam(defaultValue = "10") int sizePage) {

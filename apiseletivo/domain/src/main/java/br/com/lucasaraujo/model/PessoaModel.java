@@ -8,9 +8,9 @@ public class PessoaModel {
 
     private Long pessoaId;
 
-    private String pesNome;
+    private String pessoaNome;
 
-    private LocalDate pesDataNascimento;
+    private LocalDate pessoaDataNascimento;
 
     private Set<EnderecoModel> enderecoList;
 
@@ -30,20 +30,20 @@ public class PessoaModel {
         this.pessoaId = pessoaId;
     }
 
-    public String getPesNome() {
-        return pesNome;
+    public String getPessoaNome() {
+        return pessoaNome;
     }
 
-    public void setPesNome(String pesNome) {
-        this.pesNome = pesNome;
+    public void setPessoaNome(String pessoaNome) {
+        this.pessoaNome = pessoaNome;
     }
 
-    public LocalDate getPesDataNascimento() {
-        return pesDataNascimento;
+    public LocalDate getPessoaDataNascimento() {
+        return pessoaDataNascimento;
     }
 
-    public void setPesDataNascimento(LocalDate pesDataNascimento) {
-        this.pesDataNascimento = pesDataNascimento;
+    public void setPessoaDataNascimento(LocalDate pessoaDataNascimento) {
+        this.pessoaDataNascimento = pessoaDataNascimento;
     }
 
     public String getPessoaSexo() {
@@ -90,10 +90,10 @@ public class PessoaModel {
 
     }
 
-    public PessoaModel(Long pessoaId, String pesNome, LocalDate pesDataNascimento, Set<EnderecoModel> enderecoList, String pessoaSexo, String pessoaMae, String pessoaPai) {
+    public PessoaModel(Long pessoaId, String pessoaNome, LocalDate pessoaDataNascimento, Set<EnderecoModel> enderecoList, String pessoaSexo, String pessoaMae, String pessoaPai) {
         this.pessoaId = pessoaId;
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.enderecoList = enderecoList;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
@@ -101,9 +101,9 @@ public class PessoaModel {
     }
 
 
-    public PessoaModel(String pesNome, LocalDate pesDataNascimento, Set<Long> enderecoIdList, String pessoaSexo, String pessoaMae, String pessoaPai) {
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+    public PessoaModel(String pessoaNome, LocalDate pessoaDataNascimento, Set<Long> enderecoIdList, String pessoaSexo, String pessoaMae, String pessoaPai) {
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.enderecoIdList = enderecoIdList;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
@@ -112,9 +112,9 @@ public class PessoaModel {
 
 
 
-    public PessoaModel(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+    public PessoaModel(String pessoaNome, LocalDate pessoaDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
         this.pessoaPai = pessoaPai;

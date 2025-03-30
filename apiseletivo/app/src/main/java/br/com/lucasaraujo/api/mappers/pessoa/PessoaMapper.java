@@ -42,8 +42,8 @@ public class PessoaMapper {
 
         return new PessoaResponse(
                 pessoaModel.getPessoaId(),
-                pessoaModel.getPesNome(),
-                pessoaModel.getPesDataNascimento(),
+                pessoaModel.getPessoaNome(),
+                pessoaModel.getPessoaDataNascimento(),
                 pessoaModel.getPessoaSexo(),
                 pessoaModel.getPessoaMae(),
                 pessoaModel.getPessoaPai(),
@@ -57,8 +57,8 @@ public class PessoaMapper {
         }
 
         return new PessoaModel(
-                pessoaRequest.pesNome(),
-                pessoaRequest.pesDataNascimento(),
+                pessoaRequest.pessoaNome(),
+                pessoaRequest.pessoaDataNascimento(),
                 pessoaRequest.enderecoIdList(),
                 pessoaRequest.pessoaSexo(),
                 pessoaRequest.pessoaMae(),
@@ -82,8 +82,8 @@ public class PessoaMapper {
 
         return new PessoaModel(
                 pessoaEntity.getPessoaId(),
-                pessoaEntity.getPesNome(),
-                pessoaEntity.getPesDataNascimento(),
+                pessoaEntity.getPessoaNome(),
+                pessoaEntity.getPessoaDataNascimento(),
                 enderecoModelSet,
                 pessoaEntity.getPessoaSexo(),
                 pessoaEntity.getPessoaMae(),
@@ -105,8 +105,8 @@ public class PessoaMapper {
         }
         return new PessoaEntity(
                 pessoaModel.getPessoaId(),
-                pessoaModel.getPesNome(),
-                pessoaModel.getPesDataNascimento(),
+                pessoaModel.getPessoaNome(),
+                pessoaModel.getPessoaDataNascimento(),
                 pessoaModel.getPessoaSexo(),
                 pessoaModel.getPessoaMae(),
                 pessoaModel.getPessoaPai(),

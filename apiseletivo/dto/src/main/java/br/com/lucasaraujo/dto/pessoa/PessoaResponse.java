@@ -9,10 +9,10 @@ import java.util.Set;
 public record PessoaResponse(
         Long pessoaId,
 
-        String pesNome,
+        String pessoaNome,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
-        LocalDate pesDataNascimento,
+        LocalDate pessoaDataNascimento,
 
         String pessoaSexo,
 
