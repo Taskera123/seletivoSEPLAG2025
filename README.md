@@ -1,5 +1,4 @@
-## 🧩 Projeto: Sistema do Processo Seletivo Junior
-
+## 🧩 Projeto: Sistema do Processo Seletivo 
 **Nome:** Lucas Henrique Tasca de Araujo  
 **Inscrição:** xxx
 
