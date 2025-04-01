@@ -128,8 +128,8 @@ public class ServidorTemporarioPortImp implements ServidorTemporarioPort {
         PessoaModel pessoaModel = servidorTemporarioModel.getPessoa();
         PessoaEntity pessoaEntityBD = pessoaMapper.pessoaModelToEntity(servidorTemporarioModeBD.getPessoa());
 
-        pessoaEntityBD.setPesNome(pessoaModel.getPesNome());
-        pessoaEntityBD.setPesDataNascimento(pessoaModel.getPesDataNascimento());
+        pessoaEntityBD.setPessoaNome(pessoaModel.getPessoaNome());
+        pessoaEntityBD.setPessoaDataNascimento(pessoaModel.getPessoaDataNascimento());
         pessoaEntityBD.setPessoaSexo(pessoaModel.getPessoaSexo());
         pessoaEntityBD.setPessoaMae(pessoaModel.getPessoaMae());
         pessoaEntityBD.setPessoaPai(pessoaModel.getPessoaPai());
@@ -214,11 +214,11 @@ public class ServidorTemporarioPortImp implements ServidorTemporarioPort {
         }
 
 
-        if(servidorTemporarioModel.getPessoa().getPesNome().isBlank()){
+        if(servidorTemporarioModel.getPessoa().getPessoaNome().isBlank()){
             throw new RuntimeException("Nome é obrigatorio");
         }
 
-        if(servidorTemporarioModel.getPessoa().getPesNome().length() > 200){
+        if(servidorTemporarioModel.getPessoa().getPessoaNome().length() > 200){
             throw new RuntimeException("Nome deve ter no maximo 200 caracteres");
         }
 
@@ -246,7 +246,7 @@ public class ServidorTemporarioPortImp implements ServidorTemporarioPort {
             throw new RuntimeException("Sexo deve ter no maximo 09 caracteres");
         }
 
-        if(servidorTemporarioModel.getPessoa().getPesDataNascimento() == null){
+        if(servidorTemporarioModel.getPessoa().getPessoaDataNascimento() == null){
             throw new RuntimeException("Data de Nascimento é obrigatorio");
         }
 

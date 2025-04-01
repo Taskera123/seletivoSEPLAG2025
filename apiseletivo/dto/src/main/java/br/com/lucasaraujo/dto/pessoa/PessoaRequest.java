@@ -6,10 +6,10 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public record PessoaRequest(
-         String pesNome,
+         String pessoaNome,
 
          @JsonFormat(pattern = "dd/MM/yyyy")
-         LocalDate pesDataNascimento,
+         LocalDate pessoaDataNascimento,
 
          String pessoaSexo,
 

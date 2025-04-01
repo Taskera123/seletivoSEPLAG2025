@@ -17,10 +17,10 @@ public class PessoaEntity {
     private Long pessoaId;
 
     @Column(name = "pes_nome", length = 200, nullable = false)
-    private String pesNome;
+    private String pessoaNome;
 
     @Column(name = "pes_data_nascimento", nullable = false)
-    private LocalDate pesDataNascimento;
+    private LocalDate pessoaDataNascimento;
 
     @Column(name = "pes_sexo", length = 9, nullable = false)
     private String pessoaSexo;
@@ -42,20 +42,20 @@ public class PessoaEntity {
         this.pessoaId = pessoaId;
     }
 
-    public String getPesNome() {
-        return pesNome;
+    public String getPessoaNome() {
+        return pessoaNome;
     }
 
-    public void setPesNome(String pesNome) {
-        this.pesNome = pesNome;
+    public void setPessoaNome(String pessoaNome) {
+        this.pessoaNome = pessoaNome;
     }
 
-    public LocalDate getPesDataNascimento() {
-        return pesDataNascimento;
+    public LocalDate getPessoaDataNascimento() {
+        return pessoaDataNascimento;
     }
 
-    public void setPesDataNascimento(LocalDate pesDataNascimento) {
-        this.pesDataNascimento = pesDataNascimento;
+    public void setPessoaDataNascimento(LocalDate pessoaDataNascimento) {
+        this.pessoaDataNascimento = pessoaDataNascimento;
     }
 
     public String getPessoaSexo() {
@@ -93,35 +93,35 @@ public class PessoaEntity {
     public PessoaEntity() {
     }
 
-    public PessoaEntity(Long pessoaId, String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
+    public PessoaEntity(Long pessoaId, String pessoaNome, LocalDate pessoaDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
         this.pessoaId = pessoaId;
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
         this.pessoaPai = pessoaPai;
     }
 
-    public PessoaEntity(Long pessoaId, String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
+    public PessoaEntity(Long pessoaId, String pessoaNome, LocalDate pessoaDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
         this.pessoaId = pessoaId;
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
         this.pessoaPai = pessoaPai;
         this.enderecoList = enderecoList;
     }
 
-    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+    public PessoaEntity(String pessoaNome, LocalDate pessoaDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai) {
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
         this.pessoaPai = pessoaPai;
     }
-    public PessoaEntity(String pesNome, LocalDate pesDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
-        this.pesNome = pesNome;
-        this.pesDataNascimento = pesDataNascimento;
+    public PessoaEntity(String pessoaNome, LocalDate pessoaDataNascimento, String pessoaSexo, String pessoaMae, String pessoaPai, Set<EnderecoEntity> enderecoList) {
+        this.pessoaNome = pessoaNome;
+        this.pessoaDataNascimento = pessoaDataNascimento;
         this.pessoaSexo = pessoaSexo;
         this.pessoaMae = pessoaMae;
         this.pessoaPai = pessoaPai;

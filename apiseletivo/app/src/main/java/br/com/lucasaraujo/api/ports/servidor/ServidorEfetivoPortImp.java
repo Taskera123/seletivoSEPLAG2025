@@ -122,11 +122,11 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
             throw new RuntimeException("Matricula deve ter no maximo 20 caracteres");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesNome().isBlank()){
+        if(servidorEfetivoModel.getPessoa().getPessoaNome().isBlank()){
             throw new RuntimeException("Nome é obrigatorio");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesNome().length() > 200){
+        if(servidorEfetivoModel.getPessoa().getPessoaNome().length() > 200){
             throw new RuntimeException("Nome deve ter no maximo 200 caracteres");
         }
 
@@ -154,7 +154,7 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
             throw new RuntimeException("Sexo deve ter no maximo 09 caracteres");
         }
 
-        if(servidorEfetivoModel.getPessoa().getPesDataNascimento() == null){
+        if(servidorEfetivoModel.getPessoa().getPessoaDataNascimento() == null){
             throw new RuntimeException("Data de Nascimento é obrigatorio");
         }
 
@@ -175,8 +175,8 @@ public class ServidorEfetivoPortImp implements ServidorEfetivoPort {
         PessoaEntity pessoaEntityBD = pessoaMapper
                 .pessoaModelToEntity(servidorEfetivoModelBD.getPessoa());
 
-        pessoaEntityBD.setPesNome(pessoaModel.getPesNome());
-        pessoaEntityBD.setPesDataNascimento(pessoaModel.getPesDataNascimento());
+        pessoaEntityBD.setPessoaNome(pessoaModel.getPessoaNome());
+        pessoaEntityBD.setPessoaDataNascimento(pessoaModel.getPessoaDataNascimento());
         pessoaEntityBD.setPessoaSexo(pessoaModel.getPessoaSexo());
         pessoaEntityBD.setPessoaMae(pessoaModel.getPessoaMae());
         pessoaEntityBD.setPessoaPai(pessoaModel.getPessoaPai());

@@ -1,7 +1,7 @@
 ## 🧩 Projeto: Sistema do Processo Seletivo Pleno
 
 **Nome:** Lucas Henrique Tasca de Araujo  
-**Inscrição:** xx
+**Inscrição:** 8382
 
 ---
 
@@ -16,12 +16,15 @@
 ---
 
 ## 🛠️ Como Executar
-
+Atentar antes de subir, limpar/ deletar imagens de outros containers para não da erro ou conflitos
+   ```bash
+   docker system prune 
+   ```
 1. Navegue até a pasta `sandbox` no projeto.
 2. Execute o seguinte comando no terminal dentro dessa pasta:
 
    ```bash
-   docker-compose up
+   docker-compose up --build
    ```
 
    Este comando iniciará os seguintes containers:
@@ -101,28 +104,28 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 
 ### 👨‍💼 CRUD de Servidor Efetivo
 
-- **POST** `/servidor-efetivo/`: Cria um novo servidor efetivo.
+- **POST** `/servidorEfetivo/`: Cria um novo servidor efetivo.
   - Necessário informar a pessoa completa.
   - Não é necessário informar lista completa de endereços, apenas os IDs.
-- **GET** `/servidor-efetivo/paginado/all`: Lista servidores efetivos paginados.
-- **GET** `/servidor-efetivo/{pessoaId}`: Busca servidor efetivo por ID.
-- **PUT** `/servidor-efetivo/{pessoaId}`: Atualiza servidor efetivo.
-- **POST** `/servidor-efetivo/upload-fotos/{pessoaId}`: Adiciona uma ou mais fotos ao servidor.
-- **DELETE** `/servidor-efetivo/{pessoaId}`: Exclui o servidor efetivo.
-- **GET** `/servidor-efetivo/endereco-funcional?nome=...`: Busca endereço funcional por parte do nome.
-- **GET** `/servidor-efetivo/lotados-unidade/{unidadeId}`: Lista servidores efetivos lotados em determinada unidade.
+- **GET** `/servidorEfetivo/paginado/all`: Lista servidores efetivos paginados.
+- **GET** `/servidorEfetivo/{pessoaId}`: Busca servidor efetivo por ID.
+- **PUT** `/servidorEfetivo/{pessoaId}`: Atualiza servidor efetivo.
+- **POST** `/servidorEfetivo/uploadFoto/{pessoaId}`: Adiciona uma ou mais fotos ao servidor.
+- **DELETE** `/servidorEfetivo/{pessoaId}`: Exclui o servidor efetivo.
+- **GET** `/servidorEfetivo/enderecoFuncional?nome=...`: Busca endereço funcional por parte do nome.
+- **GET** `/servidorEfetivo/lotadosUnidade/{unidadeId}`: Lista servidores efetivos lotados em determinada unidade.
 
 ---
 
 ### ⏳ CRUD de Servidor Temporário
 
-- **POST** `/servidor-temporario/`: Cria um novo servidor temporário.
+- **POST** `/servidorTemporario/`: Cria um novo servidor temporário.
   - Semelhante ao servidor efetivo.
-- **GET** `/servidor-temporario/paginado/all`: Lista servidores temporários paginados.
-- **GET** `/servidor-temporario/{unidadeId}`: Busca servidor temporário por unidade.
-- **PUT** `/servidor-temporario/{pessoaId}`: Atualiza servidor temporário.
-- **POST** `/servidor-efetivo/upload-fotos/{pessoaId}`: (Sim, também funciona para temporários).
-- **DELETE** `/servidor-temporario/{pessoaId}`: Exclui o servidor temporário.
+- **GET** `/servidorTemporario/paginado/all`: Lista servidores temporários paginados.
+- **GET** `/servidorTemporario/{unidadeId}`: Busca servidor temporário por unidade.
+- **PUT** `/servidorTemporario/{pessoaId}`: Atualiza servidor temporário.
+- **POST** `/servidorTemporario/uploadFoto/{pessoaId}`: (Sim, também funciona para temporários).
+- **DELETE** `/servidorTemporario/{pessoaId}`: Exclui o servidor temporário.
 
 ---
 

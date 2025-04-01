@@ -29,7 +29,7 @@ import java.util.List;
 
 @RestController
 @Tag(name = "Servidores Temporários")
-@RequestMapping("/servidor-temporario")
+@RequestMapping("/servidorTemporario")
 public class ServidorTemporarioController {
 
     private final ServidorTemporarioMapper servidorTemporarioMapper;
@@ -88,7 +88,7 @@ public class ServidorTemporarioController {
             @ApiResponse(responseCode  = "404", description  = "Serviço não encontrado")
     })
 
-    @PostMapping(value = "/upload-fotos/{pessoaId}",
+    @PostMapping(value = "/uploadFoto/{pessoaId}",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
