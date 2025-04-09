@@ -138,3 +138,16 @@ O projeto segue os princípios da arquitetura **Ports and Adapters** (*Hexagonal
 - **GET** `/lotacao/{unidadeId}`: Busca uma lotação específica.
 - **PUT** `/lotacao/{lotacaoId}`: Atualiza uma lotação.
 - **DELETE** `/lotacao/{lotacaoId}`: Exclui uma lotação.
+
+### ✅ Acesso ao console do MinIO
+
+1. Acesse a interface do MinIO:
+
+   ```shell
+   http://localhost:9001/login
+   ```
+2. Use as credenciais:
+- **Usuário:** `admin`
+- **Senha:** `senhas@2025`
+
+Agora poderá verificar o bucket criado para armzenar os arquivo, o Bucket-fotos, na interface Swagger dita previamente ao documento há endpoints para testes.
